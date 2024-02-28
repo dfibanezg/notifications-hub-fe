@@ -3,15 +3,12 @@ import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div *ngFor="let message of messages">
-      <mat-card>{{ message }}</mat-card>
-    </div>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   messages: string[] = [];
+  notificationNumberCount: number = 0;
 
   constructor(private notificationService: NotificationService) {}
 
@@ -19,6 +16,7 @@ export class AppComponent implements OnInit {
     this.notificationService.startConnection();
     this.notificationService.addNotificationListener((message: string) => {
       this.messages.push(message);
+      this.notificationNumberCount++;
     });
   }
 }
