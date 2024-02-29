@@ -1,0 +1,25 @@
+<div class="px-4 py-2 rounded-lg border border-solid border-gray-300 h-full min-h-48">
+    <div class="flex justify-between items-center">
+        <p class="font-medium text-sm">{{title}}</p>
+        <div class="flex items-center" *ngIf="files.length > 0">
+            <mat-icon [matMenuTriggerFor]="fileMenu">more_vert</mat-icon>
+            <mat-menu #fileMenu="matMenu">
+              <button mat-menu-item>Mark as Private</button>
+              <button mat-menu-item>Upload Files</button>
+              <button mat-menu-item>Rename</button>
+              <button mat-menu-item>Delete</button>
+            </mat-menu>
+            <mat-checkbox ></mat-checkbox>
+        </div>
+        <link-button *ngIf="files.length===0">Upload</link-button>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <div *ngIf="files.length===0" class="text-sm mt-2">No documents uploaded.</div>
+      <div 
+        class="flex gap-1 border border-solid rounded-lg border-gray-500 py-1 px-2 items-center w-full justify-between" 
+        *ngFor="let file of files">
+        <p class="text-sm dots">{{file}}</p>
+        <mat-icon class="text-base" style="width: auto;">close</mat-icon>
+      </div>
+    </div>
+</div>

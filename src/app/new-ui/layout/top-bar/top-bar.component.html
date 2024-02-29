@@ -1,0 +1,33 @@
+<div class="flex flex-row justify-between m-3">
+  
+    <new-ui-universal-search class="w-96"></new-ui-universal-search>
+    
+    <div class="flex items-center gap-4">
+
+      <layout-notifications></layout-notifications>
+
+      <div class="flex bg-[#b2ccc1] p-1 rounded-full items-center" *ngIf="isImpersonating()">
+        <div class="flex flex-col text-xs font-medium mx-3">
+          <div>Impersonating</div>
+          <div>Logistics Fox</div>
+        </div>
+        <button mat-fab style="box-shadow: none; width: 40px; height: 40px; " class="h-10 w-10 background-1" [matMenuTriggerFor]="account" >
+        <p headline-1 style="color: black">P</p>
+      </button>
+      </div>
+      <button mat-fab style="box-shadow: none; width: 40px; height: 40px; " class="h-10 w-10 background-1" [matMenuTriggerFor]="account"
+        *ngIf="!isImpersonating()" >
+        <p headline-1 style="color: black">P</p>
+      </button>
+      <mat-menu #account="matMenu" class="mat-menu-user">
+        <button mat-menu-item>
+          <div>Jhon Doe</div> 
+          <div class="text-sm text-gray-400">Carrier Claims Solutions</div>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="openImpersontateWindow()">Impersonate</button>
+        <button mat-menu-item>Log Out</button>
+      </mat-menu>
+    </div>
+
+  </div>

@@ -1,0 +1,29 @@
+@import "/src/scss/variables";
+
+::ng-deep {
+
+    .header {
+        // font-weight: bold;
+        font-weight: 500 !important;
+        // color: black;
+        background-color: $background-6 !important;
+        // font-size: 15px;
+        line-height: 20px !important;
+    }
+
+tr:has(.header) {
+    height: 40px !important;
+    font-weight: 600 !important;
+}
+
+}
+
+tr:has(td) {
+    background-color: $background-3;
+    border: solid 4px transparent;
+    height: 42px;
+}
+
+.mat-mdc-row:nth-child(odd) {
+  background-color: #FFFFFF;
+}

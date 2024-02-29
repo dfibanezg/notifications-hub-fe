@@ -1,0 +1,41 @@
+<div class="flex gap-6 pt-3">
+    <app-input label="Primary Identifier" class="w-80" hint="*Required"></app-input>
+    <app-select label="Identifier Type"
+      hint="*Required"
+      [options]="identifierOptions"></app-select>
+    <!-- <mat-form-field appearance="outline" class="w-80 h-12 " >
+        <mat-label>Identifier Type</mat-label>
+        <mat-select>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+        <mat-hint class="text-xs text-gray-500">*Required</mat-hint>
+    </mat-form-field>
+     -->
+    <mat-checkbox >Pre-Claim</mat-checkbox>
+    
+</div>
+
+<div class="mt-4">
+  <link-button text="Pull Data from API"></link-button>
+</div>
+
+<div class="mt-10">
+  <p class="text-xs font-medium">Claim Documents</p>
+  <p class="text-sm font-medium">Drag and drop file into the different document types, or choose files from your computer's directory.</p>
+
+  <div class="grid grid-cols-4 mt-2 gap-4 items-start">
+
+    <app-upload-file-tile title="Bill of Landing"></app-upload-file-tile>
+    <app-upload-file-tile title="Freight Invoice"></app-upload-file-tile>
+    <app-upload-file-tile title="Product Invoice"></app-upload-file-tile>
+    <app-upload-file-tile title="Delivery Receipt / Proof of Delivery"></app-upload-file-tile>
+    <app-upload-file-tile title="Inspection Report"></app-upload-file-tile>
+    <app-upload-file-tile title="Freight Damage Photo"></app-upload-file-tile>
+    <app-upload-file-tile title="Other"></app-upload-file-tile>
+
+
+  </div>
+
+</div>

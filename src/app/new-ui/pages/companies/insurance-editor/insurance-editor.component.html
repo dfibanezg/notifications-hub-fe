@@ -1,0 +1,34 @@
+<div class="bg-white h-full w-full">
+
+  <div class="border-b border-gray-300 border-solid flex justify-between p-4 items-center">
+    <div class="flex items-center gap-4 ">
+      <button class="flex items-center justify-center p-1" routerLink="/new-ui/company-list">
+        <mat-icon>close</mat-icon>
+      </button>
+      <h1 class="text-2xl">New Insurance</h1>
+    </div>
+    <div class="flex justify-end gap-1 mt-5">
+      <button mat-button color="primary" mat-dialog-close>Cancel</button>
+       <button mat-raised-button color="primary" class="mrl-2" [mat-dialog-close]="true">Save</button>
+    </div>
+  </div>
+  <div class="flex justify-between px-6 py-5 mt-3 w-full">
+    <app-input label="Insurance Code" class="w-80" hint="*Required"></app-input>
+    <app-input label="Insurance Name" class="w-80" hint="*Required"></app-input>
+    <app-input label="Corporate" class="w-80" hint=""></app-input>
+
+  </div>
+  <div class="flex justify-between px-6 py-5 w-full">
+    <app-input label="Policy Number" class="w-80" hint=""></app-input>
+    <app-input label="Address" class="w-80" hint="New York, NY  11111" placeholder="123 Example st."></app-input>
+    <app-input label="Phone" class="w-80" hint="*Required" placeholder="(888) 888-8888"></app-input>
+
+  </div>
+
+  <div class="flex justify-between px-6 py-5 w-full">
+    <app-input label="Fax" class="w-80" hint="" placeholder="(888) 888-8888"></app-input>
+    <app-input label="Email Address" class="w-80" hint="*Required" placeholder="example@carrier.com"></app-input>
+    <app-input label="Web site" class="w-80" hint="*Required" placeholder="carrier.com"></app-input>
+  </div>
+</div>
+

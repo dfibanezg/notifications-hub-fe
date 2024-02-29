@@ -1,0 +1,16 @@
+<div class="px-4 py-2 rounded-lg border border-solid border-gray-300 h-full min-h-48">
+    <div class="flex justify-between items-center">
+        <p class="text-base font-medium dots">{{title}}</p>
+
+        <link-button text="{{newSubButton}}" (click)="openNewClaimSetting(false,  'New Awaiting Response Sub-Status', 'Sub-Status Name')"><mat-icon class="text-base">add</mat-icon></link-button>
+    </div>
+    <div class="flex flex-wrap gap-2 grid grid-cols-2">
+        <div *ngIf="files.length===0" class="text-sm mt-2">No documents uploaded.</div>
+        <div 
+            class="flex gap-1 border border-solid rounded-lg border-gray-500 py-1 px-2 items-center w-full justify-between" 
+            *ngFor="let file of files">
+            <p class="text-sm dots w-full">{{file}}</p>
+            <mat-icon class="text-base" style="width: auto;">close</mat-icon>
+        </div>
+    </div>
+</div>

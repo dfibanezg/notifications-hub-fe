@@ -1,0 +1,30 @@
+
+
+
+<div class="flex gap-6 w-1/2 mt-3">
+
+    <mat-form-field appearance="outline" class="flex-1">
+        <mat-label>Pickup Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="flex-1">
+        <mat-label>Delivery Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+</div>
+
+
+<div class="flex w-1/2 mt-6 mb-4">
+      <app-text-area class="w-full" height="100px" label="Notes for Claim Form" placeholder="" hint="Max 150 characters" ></app-text-area>
+</div>
+
+
+<claim-editor-details-table></claim-editor-details-table>

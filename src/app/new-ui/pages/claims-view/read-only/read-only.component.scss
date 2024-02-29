@@ -1,0 +1,14 @@
+@import "/src/scss/variables";
+
+::ng-deep .mat-mdc-menu-panel {
+    max-width: none !important;
+    background-color: $background-1;
+ }
+
+ ::ng-deep .mat-mdc-menu-panel{
+    background-color: $background !important;
+  }
+
+  .mat-mdc-card.mdc-card.demo-inline-calendar-card {
+   background-color: $background-3;
+  }

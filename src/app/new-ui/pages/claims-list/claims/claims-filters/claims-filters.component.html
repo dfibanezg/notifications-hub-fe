@@ -1,0 +1,56 @@
+<div class="flex justify-between items-center">
+  <h2 class="text-base py-3 px-2 font-medium">Claims Filter</h2>
+  <mat-icon mat-dialog-close>close</mat-icon>
+</div>
+
+<mat-divider></mat-divider>
+
+<form class="flex flex-col">
+  <div class="p-3 flex-1 flex flex-col gap-2">
+    <div>
+      <mat-checkbox class="">Has Tasks</mat-checkbox>
+    </div>
+
+    <app-input label="Primary Identifier"></app-input>
+
+    <app-select label="Status"></app-select>
+
+    <app-date-input label="Created"></app-date-input>
+    
+    <app-date-input label="Last Update"></app-date-input>
+
+    <app-select label="Claim Type"></app-select>
+
+    <app-input label="Customer"></app-input>
+    
+    <app-input label="Carrier"></app-input>
+    
+    <app-input label="Carrier Claim Reference No"></app-input>
+    
+    <app-input label="Claimant"></app-input>
+
+    <app-input label="Shipper"></app-input>
+
+    <app-input label="Consignee"></app-input>
+    
+    <app-input label="Insurance"></app-input>
+  
+    <div>
+      <mat-checkbox class="">Has Insurance</mat-checkbox>
+    </div>
+
+    <div>
+      <mat-checkbox class="">Deleted</mat-checkbox>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="buttons-container">
+      <button mat-stroked-button color="primary" mat-dialog-close>
+        Clear All
+      </button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true">
+        Apply
+      </button>
+    </div>
+  </div>
+</form>

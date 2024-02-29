@@ -1,0 +1,52 @@
+<div class="bg-white pb-10 min-h-full">
+    <div class="flex justify-between p-4 items-center">
+      <div class="flex items-center gap-4">
+        <button
+          class="flex items-center justify-center p-1"
+          (click)="location.back()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <h1 class="text-2xl">New Letter Template</h1>
+      </div>
+  
+      <div class="flex">
+        <link-button text="Cancel" (click)="location.back()"></link-button>
+        <primary-button text="Save" (click)="location.back()"></primary-button>
+      </div>
+    </div>
+  
+    <mat-divider></mat-divider>
+  
+    <div class="px-6 mx-4 mt-6 flex flex-col gap-6">
+  
+      <div class="grid grid-cols-3 gap-8 mt-2">
+  
+        <app-input label="Template Name"></app-input>
+        <app-select
+          label="Template Type"
+          [options]="[{value:'',text:'Carrier Template'}]"></app-select>
+          <div></div>
+            
+      </div>
+
+      <div class="grid grid-cols-3 gap-8 mt-2">
+  
+            <app-select
+            class=""
+            label="Claim Field Code"
+            [options]="[{value:'',text:'Reference Number'}]"></app-select>
+
+        <div class="flex items-center gap-4">
+          <div>$[reference_number]</div>
+
+            <link-button>Copy to Clipboard</link-button>
+        </div>
+            
+      </div>
+  
+      <app-text-editor class="mt-2" ></app-text-editor>
+  
+     
+  </div>
+  

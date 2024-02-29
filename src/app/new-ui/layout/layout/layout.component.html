@@ -1,0 +1,84 @@
+<mat-sidenav-container class="h-dvh" >
+    <mat-sidenav mode="side" opened class="h-dvh">
+      <div class="flex flex-col items-center px-2" >
+        <div class="pt-2">
+          <img src="/assets/logo transparente.png" width="65" />
+        </div>
+
+        <div class="menu-button">
+          <button mat-button (click)="sidenavToggle()">
+            <mat-icon
+            aria-hidden="false"
+            aria-label="Menu"
+            class="text-center items-center scale-125">menu</mat-icon >
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-[13px] items-center">
+
+        <div>
+          <button mat-button class=" ">
+            <div class="flex flex-col items-center">
+              <mat-icon aria-hidden="false" aria-label="Example home icon">insert_chart_outlined</mat-icon>
+              <span class="text-xs mt-2">Insights</span>
+            </div>
+          </button>
+        </div>
+
+        <div>
+          <div class="flex flex-col items-center" routerLink="/new-ui/claims/" >
+              <button  mat-button  routerLinkActive="active-2" class="rounded-full " >
+                <img src="/assets/new-ui-icons/Claims.svg" class="z-10" >
+              </button>
+              <span class="text-xs " routerLinkActive="font-semibold">Claims</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex flex-col items-center"routerLink="/new-ui/tasks-list" >
+            <button  mat-button  routerLinkActive="active-2" class="rounded-full " >
+              <mat-icon aria-hidden="false" class="scale-125">done</mat-icon>
+            </button>
+            <span class="text-xs "  routerLinkActive="font-semibold">Tasks</span>
+          </div>
+        </div>
+
+
+        <div>
+          <div class="flex flex-col items-center" routerLink="/new-ui/company-list" >
+              <button  mat-button  routerLinkActive="active-2" class="rounded-full " >
+                <img src="/assets/new-ui-icons/Companies.svg" >
+              </button>
+              <span class="text-xs" routerLinkActive="font-semibold">Companies</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex flex-col items-center"  >
+              <button  mat-button  routerLinkActive="active-2" class="rounded-full " >
+                <img src="/assets/new-ui-icons/Reports.svg" >
+              </button>
+              <span class="text-xs " routerLinkActive="font-semibold">Reports</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex flex-col items-center"  >
+              <button  mat-button routerLink="/new-ui/user-settings" routerLinkActive="active-2" class="rounded-full" (click)="subMenuOpened=false" >
+                <img src="/assets/new-ui-icons/Settings.svg" >
+              </button>
+              <span class="text-xs " routerLinkActive="font-semibold">Settings</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="h-dvh">
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>

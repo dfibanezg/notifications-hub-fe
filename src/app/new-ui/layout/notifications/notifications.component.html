@@ -1,0 +1,37 @@
+<button mat-fab style=" background-color:transparent; box-shadow: none;  " [matMenuTriggerFor]="notificationsMenu">
+    <app-badge-icon src="/assets/new-ui-icons/Bell-2.svg" [badge]="notificationNumberCount.toString()"></app-badge-icon>
+</button>
+<mat-menu #notificationsMenu="matMenu" class="mat-menu-user max-h-[600px] " style="-ms-overflow-style: none !important; scrollbar-width: none !important;" >
+    <div class="flex justify-between items-center mb-2 mx-4">
+      <div class="text-xl">Notifications</div>
+      <link-button>Clear All</link-button>
+    </div>
+    <mat-divider></mat-divider>
+
+    <!-- today -->
+    <div class="flex flex-col gap-2 pt-4 mx-4 mb-2">
+      <div>Today</div>
+      <!-- Message Item -->
+      <div class="flex items-center gap-2" *ngFor="let mess of messages">
+        <app-panel-outlined  class="bg-white rounded-md w-80">
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-primary font-medium">Claim 123456789123</div>
+              <div class="text-xs text-gray-600">Task Due</div>
+            </div>
+            <div class="text-sm"> <span class="text-indigo-400 font-medium">Patrap Jayaram </span> <span>{{mess}}</span></div>
+            <div class="flex items-center justify-between">
+              <div class="text-xs text-gray-600">Patrap Jayaram</div>
+              <div class="text-xs text-gray-600">9:00AM 11/27/2023</div>
+            </div>
+          </div>
+        </app-panel-outlined>
+        <button mat-fab style="background-color: transparent; box-shadow: none; width: 24px; height: 24px; color: black;">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <!-- END Message Item -->
+      
+      <!-- END Today -->
+    </div>
+  </mat-menu>

@@ -1,0 +1,24 @@
+<div class="flex justify-between items-center" (mouseenter) ="showEditableButtons(true)" (mouseleave) ="showEditableButtons(false)">
+
+    <label class="relative inline-flex items-center label-lenght">
+        <p class="text-base font-medium dots text-wrapped">{{text}}</p>
+    </label>
+
+    <div class="flex h-11 justify-end">
+        <button _ngcontent-ng-c2316693817="" mat-icon-button="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base" mat-ripple-loader-centered="" *ngIf="isEditable && mouseOver">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <img _ngcontent-ng-c2316693817="" src="/assets/new-ui-icons/Edit.svg">
+            <span class="mat-mdc-focus-indicator"></span><span class="mat-mdc-button-touch-target"></span>
+            <span class="mat-ripple mat-mdc-button-ripple"></span>
+        </button>
+
+        <button _ngcontent-ng-c2316693817="" mat-icon-button="" mat-ripple-loader-class-name="mat-mdc-button-ripple" class="mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base" mat-ripple-loader-centered="" *ngIf="isDeletable && mouseOver">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <img _ngcontent-ng-c2316693817="" src="/assets/new-ui-icons/Delete.svg">
+            <span class="mat-mdc-focus-indicator"></span><span class="mat-mdc-button-touch-target"></span>
+            <span class="mat-ripple mat-mdc-button-ripple"></span>
+        </button>
+
+        <mat-checkbox class="three-per-padding"></mat-checkbox>
+    </div>
+</div>

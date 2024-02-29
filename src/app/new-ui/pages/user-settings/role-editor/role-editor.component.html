@@ -1,0 +1,74 @@
+<div class="bg-white">
+  <div class="flex justify-between p-4 items-center">
+    <div class="flex items-center gap-4">
+      <button class="flex items-center justify-center p-1" routerLink="/new-ui/user-settings">
+        <mat-icon>close</mat-icon>
+      </button>
+      <h1 class="text-2xl" >Edit Role</h1>
+    </div>
+
+    <div class="flex">
+      <link-button text="Cancel" mat-dialog-close></link-button>
+      <primary-button text="Save"></primary-button>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="mt-4 mx-8">
+
+    <div class="w-80 mb-6 ">
+      <app-input label="Role Name" ></app-input>
+    </div>
+
+    <div class="grid grid-flow-col items-start grid-cols-2 gap-6 p-2">
+      
+      <div class="border border-gray-300 border-solid p-3 rounded-lg flex flex-col">
+        <div class="flex justify-between">
+          <h3 class="text-2xl">Claims Assignment</h3>
+          <mat-checkbox >All Claims</mat-checkbox>
+        </div>
+        <mat-checkbox  checked="">Customer </mat-checkbox>
+        <mat-checkbox            >Carrier </mat-checkbox>
+        <mat-checkbox  checked="">Claim Amount </mat-checkbox>
+        <div class="flex ml-12 gap-2">
+          <app-select class="w-36" [options]="[{text:'Less than', value:'1'}, {text:'Option 2', value:'2'}, {text:'Option 3', value:'3'}]"></app-select>
+          <app-input  class="w-full"></app-input>
+        </div>
+
+        <mat-checkbox >Claim Status </mat-checkbox>
+        <mat-checkbox >Region </mat-checkbox>
+
+      </div>
+
+      <div class="border border-gray-300 border-solid p-3 mb-2 rounded-lg flex flex-col">
+        <div class="flex justify-between">
+          <h3 class="text-2xl mb-2">Permissions</h3>
+          <mat-checkbox >All Permissions</mat-checkbox>
+        </div>
+        <h4 class="text-sm font-medium">Claims</h4>
+        <mat-checkbox  checked="">Update Status </mat-checkbox>
+        <mat-checkbox            >View Private Claim Data</mat-checkbox>
+        <mat-checkbox  checked="">Manage Form Claim Data</mat-checkbox>
+        <mat-checkbox  checked="">View Private Document Data</mat-checkbox>
+        <mat-checkbox  checked="">Manage Documents</mat-checkbox>
+        <mat-checkbox  checked="">Send Emails</mat-checkbox>
+
+        <h4 class="text-sm font-medium my-2">Companies</h4>
+        <mat-checkbox >Manage Customers </mat-checkbox>
+        <mat-checkbox class="ml-8" disabled="">Add Customer Users </mat-checkbox>
+        <mat-checkbox checked="">Manage Carriers </mat-checkbox>
+        <mat-checkbox checked="">Manage Insurance </mat-checkbox>
+
+        <h4 class="text-sm font-medium my-2">Organization Settings</h4>
+        <mat-checkbox checked="">Manage Roles & Users </mat-checkbox>
+        <mat-checkbox checked="">Manage Email Templates </mat-checkbox>
+        <mat-checkbox checked="">Manage Letter Templates </mat-checkbox>
+        <mat-checkbox checked="">Manage API Setup </mat-checkbox>
+
+      </div>
+  </div>
+
+
+  </div>
+</div>

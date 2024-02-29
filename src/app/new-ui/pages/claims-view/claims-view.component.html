@@ -1,0 +1,617 @@
+<app-top-bar></app-top-bar>
+
+<div class="bg-white rounded-xl min-h-dvh m-4 mt-6" >
+
+    <div class="flex items-center px-4 pl-0 pt-2 pb-0">
+        <div class="flex flex-1 items-center">
+            <button mat-icon-button routerLink="/new-ui/claims/claims-list">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <h1 class="text-2xl px-2 pt-2 pl-0 pb-2 m-0 font-medium">Claim 123456789 </h1>
+
+            <div class="relative grid select-none items-center 
+                whitespace-nowrap rounded-xl bg-violet-300 py-1 px-3 
+                font-sans text-xs font-medium ">
+                <span class="">Customer Info Requested</span>
+            </div>
+        </div>
+
+        <div class="flex items-center">
+            <!-- update status button -->
+            <button mat-fab [matMenuTriggerFor]="menu" style="height: 24px; width: 24px; background-color: transparent;  box-shadow: none; ">
+                <!-- <img src="/assets/new-ui-icons/CommentOutline.svg" > -->
+                <app-badge-icon 
+                    src="/assets/new-ui-icons/CommentOutline.svg"
+                    badge="3"></app-badge-icon>
+            </button>
+            <mat-menu #menu="matMenu" >
+                <claims-view-comments ></claims-view-comments>
+            </mat-menu>
+
+            <link-button size="small">Generate Claim Form</link-button>
+            <primary-button (click)="openUpdateStatus()">Update Status</primary-button>
+        </div>
+    </div>
+
+
+    <div class="flex gap-1 ml-12 mb-2 items-center">
+        <span class="text-sm font-medium">Assigned to </span>
+        <div class="flex gap-1 border border-solid rounded-lg border-gray-500 p-0 items-center px-2 py-0.5" >
+            <img src="/assets/new-ui-icons/User.svg" >
+            <p class="text-sm font-medium">Username</p>
+        </div>
+    </div>
+    
+    <mat-divider></mat-divider>
+
+    <mat-tab-group animationDuration="0ms" class="">
+        <!-- Claim Form Data -->
+        <mat-tab>
+            <ng-template mat-tab-label >
+                <span class="text-sm font-medium">Claim Form Data</span>
+            </ng-template>
+           
+            <div class="mx-6 mt-4 ">
+
+            <div class="grid grid-cols-3 gap-6 ">
+
+                
+                <app-panel-filled>
+                    <p class="text-xs font-medium mb-1">Claim Age</p>
+                    <div class="flex gap-2 items-end"  ><span class="text-2xl">1</span> <span class="text-xs" style="line-height: 1.5rem;">days</span></div>
+                </app-panel-filled>
+
+                <app-panel-filled>
+                    <p class="text-xs font-medium mb-1">Last Updated</p>
+                    <div><span class="text-2xl">11/17/2023</span></div>
+                </app-panel-filled>
+                
+                <app-panel-filled>
+                    <p class="text-xs font-medium mb-1">Claim Amount</p>
+                    <div class="flex gap-2 items-end"  ><span class="text-xs" style="line-height: 1.5rem;" >$</span> <span class="text-2xl" >50</span> </div>
+                </app-panel-filled>
+
+            </div>
+
+            <h4 class="mt-6 mb-4 font-medium">Identifiers</h4>
+            <div class="grid grid-cols-3 gap-x-16">
+                <app-input label="Pro No. / Invoice No." ></app-input>
+                <div>
+                    <app-input label='Reference No.'></app-input>
+                    <link-button>Pull Data from API</link-button>
+                </div>
+                <app-input label="Carrier Claim Reference No."></app-input>
+            </div>
+
+            <h4 class="mt-6 mb-4 font-medium">Timeline</h4>
+            <div class="grid grid-cols-3 gap-x-16">
+                <app-date-input label="Pickup Date"></app-date-input>
+                <app-date-input label="Delivery Date."></app-date-input>
+                <app-date-input label="Carrier Acnowledgement Date"></app-date-input>
+            </div>
+
+            <h4 class="mt-6 mb-4 font-medium">Parties</h4>
+            <div class="grid grid-cols-3 gap-x-16 ">
+                <claims-view-party-panel
+                    title="Customer"
+                    subtitle="Example Customer"
+                    address1="12 Example St."
+                    cityStateZip="New York, NY 11111"
+                    phone="(888) 888 - 8888"
+                    email="example@example.com"
+                    addNewRoute="/new-ui/customer-editor"
+                    >
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/UserFilled.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+
+                <claims-view-party-panel
+                    title="Insurance"
+                    subtitle="No insurance selected"
+                    addNewRoute="/new-ui/insurance-editor">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/UserFilled.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+            </div>
+
+            <div class="grid grid-cols-3 gap-x-16 mt-6">
+                <claims-view-party-panel
+                    title="Shipper"
+                    subtitle="No shipper selected"
+                    addNewRoute="/new-ui/customer-editor">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/PinDropOutline.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+
+                <claims-view-party-panel
+                    title="Carrier"
+                    subtitle="Example Carrier"
+                    address1="12 Example St."
+                    cityStateZip="New York, NY 11111"
+                    phone="(888) 888 - 8888"
+                    email="example@example.com"
+                    addNewRoute="/new-ui/carrier-editor">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/LocalShippingOutline.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+
+                <claims-view-party-panel
+                    title="Consignee"
+                    subtitle="No consignee selected"
+                    addNewRoute="/new-ui/customer-editor">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/PinDrop.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+            </div>
+
+            <h4 class="mt-6 mb-4 font-medium">Commodities</h4>
+            <div class="">
+                <claim-editor-details-table></claim-editor-details-table>
+                
+
+                <!-- check -->
+                <div class="flex justify-between items-center mt-2">
+
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-800"></div>
+                        <p class="ms-3 text-sm text-gray-500">Mark Freight Charges as Private</p>
+                    </label>
+                </div>
+                <!-- END check -->
+
+            </div>
+
+            <div class="my-6">
+                <mat-form-field class="flex-1" appearance="outline"  
+                    style="height: 130px !important" class="w-1/2" >
+                    <mat-label>Claim Form Notes</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..." 
+                        value="Confirmed with consignee that damage cannot be repaired"></textarea>
+                    <mat-hint>Max 150 characters</mat-hint>
+                  </mat-form-field>
+            </div>
+            
+            </div>
+        </mat-tab>
+
+        <!-- Documents -->
+       <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Documents</span>
+            </ng-template>
+
+            <div class="p-6 pt-8">
+
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style"  #matButtonToggleGroup="matButtonToggleGroup" value="uploaded">
+                    <mat-button-toggle value="uploaded"> <mat-icon *ngIf="matButtonToggleGroup.value==='uploaded'"  >check</mat-icon> Uploaded</mat-button-toggle>
+                    <mat-button-toggle value="templates"> <mat-icon *ngIf="matButtonToggleGroup.value==='templates'">check</mat-icon> Templates</mat-button-toggle>
+                </mat-button-toggle-group>
+
+                <div *ngIf="matButtonToggleGroup.value==='uploaded'">
+
+                    <div class="flex justify-between mt-8">
+                        <p>Drag and drop documents into any card to upload.</p>
+                        <link-button>
+                            <img src="/assets/new-ui-icons/Email.svg">
+                            Send in Email
+                        </link-button>                    
+                    </div>
+
+                    <div class="grid grid-cols-4 mt-2 gap-4">
+
+                        
+                        <app-upload-file-tile title="Bill of Landing"
+                            [files]="['billoflanding-1.pdf','billoflanding-2.pdf','billoflanding-3.pdf']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Freight Invoice"
+                            [files]="['shipperinvoice-1.jpg','shipperinvoice-2.jpg']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Product Invoice"
+                            [files]="[]"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Delivery Receipt / Proof of Delivery"
+                            [files]="['delivery-receipt.jpg']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Inspection Report"
+                            [files]="['inspection-report.pdf']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Freight Damage Photo"
+                            [files]="['photo-1.jpg','photo-2.jpg','photo-3.jpg']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Other"
+                            [files]="[]"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="From Templates"
+                            [files]="[]"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="My Custom Category"
+                            [files]="['random_document.pdf']"></app-upload-file-tile>
+
+                        <div class="px-4 py-1 rounded-lg custom-dashed-border self-start">
+                            <link-button>
+                                <mat-icon>add</mat-icon>
+                                New Document Category
+                            </link-button>   
+                        </div>
+
+                    </div>
+                
+                </div>
+
+                <div *ngIf="matButtonToggleGroup.value==='templates'">
+
+                    <div class="flex justify-end mt-8 mb-2">
+                        <link-button>
+                            <img src="/assets/new-ui-icons/Email.svg">
+                            Send in Email
+                        </link-button>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-6">
+
+                        <app-panel-outlined >
+                            <div class="flex flex-col items-center">
+                                <div class="flex items-center  w-full  mb-4"> 
+                                    <span class="text-sm font-medium flex-1">Damage or Short Claim (Carrier)</span>
+                                    <img src="/assets/new-ui-icons/Edit.svg" class="w-5 h-5">
+                                    <mat-checkbox></mat-checkbox>
+                                </div>
+                                
+                                <img src="/assets/new-ui-icons/DemoImage1.png">
+                            </div>
+                        </app-panel-outlined>
+
+                        <app-panel-outlined >
+                            <div class="flex flex-col items-center">
+                                <div class="flex items-center  w-full mb-4 "> 
+                                    <span class="text-sm font-medium flex-1">Damage/Short Claim (Customer)</span>
+                                    <img src="/assets/new-ui-icons/Edit.svg" class="w-5 h-5">
+                                    <mat-checkbox></mat-checkbox>
+                                </div>
+                                
+                                <img src="/assets/new-ui-icons/DemoImage1.png">
+                            </div>
+                        </app-panel-outlined>
+                        
+                        <app-panel-outlined >
+                            <div class="flex flex-col items-center">
+                                <div class="flex items-center w-full mb-4"> 
+                                    <span class="text-sm font-medium flex-1">Claim Check Received</span>
+                                    <img src="/assets/new-ui-icons/Edit.svg" class="w-5 h-5">
+                                    <mat-checkbox></mat-checkbox>
+                                </div>
+                                
+                                <img src="/assets/new-ui-icons/DemoImage1.png">
+                            </div>
+                        </app-panel-outlined>
+
+                        <app-panel-outlined >
+                            <div class="flex flex-col items-center ">
+                                <div class="flex items-center  w-full mb-4">
+                                    <span class="text-sm font-medium flex-1">New Claim Submission</span>
+                                    <img src="/assets/new-ui-icons/Edit.svg" class="w-5 h-5">
+                                    <mat-checkbox></mat-checkbox>
+                                </div>
+                                
+                                <img src="/assets/new-ui-icons/DemoImage1.png">
+                            </div>
+                        </app-panel-outlined>
+                    
+                    </div>
+
+                </div>
+                
+            </div>
+            
+        </mat-tab>
+
+        <!-- Tasks -->
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Tasks</span>
+            </ng-template>
+            
+            <div class="grid grid-cols-2 p-6">
+
+                <!-- Calendar -->
+                <div class="pr-8">
+                    <app-calendar></app-calendar>
+                </div>
+                <!-- END Calendar -->
+
+                <!-- Tasks -->
+                <div class="flex flex-col gap-2">
+
+                    <!-- Outstanding Tasks -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm font-medium">Outstanding Tasks</div>
+                            <link-button (click)="openNewTask()"><mat-icon>add</mat-icon> New Task</link-button>
+                        </div>
+
+                        <app-panel-outlined class="bg-[#dfe0ff] rounded-lg">
+                            <div class="flex ">
+                                <div class="flex-1">
+                                    <div class="text-sm font-medium mb-2">Review Documents</div>
+                                    <div class="flex gap-2">
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md" >
+                                            <img src="/assets/new-ui-icons/Calendar.svg" >
+                                            <span class="text-xs">9:00AM 11/17/2023</span>
+                                        </div>
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md"> 
+                                            <img src="/assets/new-ui-icons/Bell.svg" >
+                                            <span class="text-xs">Every 24 hours</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Edit.svg"></button>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Check.svg"></button>
+                            </div>
+                        </app-panel-outlined>
+
+                        <app-panel-outlined>
+                            <div class="flex">
+                                <div class="flex-1">
+                                    <div class="text-sm font-medium mb-2">Brad Berlin Check in with the team lead</div>
+                                    <div class="flex gap-2">
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md" >
+                                            <img src="/assets/new-ui-icons/Calendar.svg" >
+                                            <span class="text-xs">9:00AM 11/17/2023</span>
+                                        </div>
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md"> 
+                                            <img src="/assets/new-ui-icons/Bell.svg" >
+                                            <span class="text-xs">Every 24 hours</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Edit.svg"></button>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Check.svg"></button>
+                            </div>
+                        </app-panel-outlined>
+
+                    </div>
+                    <!-- END Outstanding Tasks -->
+
+                    <!-- Overdue Tasks -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-sm font-medium py-2">Overdue Tasks</div>
+                        <app-panel-outlined class="bg-[#ffdad6] rounded-lg">
+                            <div class="flex ">
+                                <div class="flex-1">
+                                    <div class="text-sm font-medium mb-2">Check in with team lead</div>
+                                    <div class="flex gap-2">
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md" >
+                                            <img src="/assets/new-ui-icons/Calendar.svg" >
+                                            <span class="text-xs">9:00AM 11/17/2023</span>
+                                        </div>
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md"> 
+                                            <img src="/assets/new-ui-icons/Bell.svg" >
+                                            <span class="text-xs">Every 24 hours</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Edit.svg"></button>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Check.svg"></button>
+                            </div>
+                        </app-panel-outlined>
+                    </div>
+                    <!-- END Overdue Tasks -->
+
+                      <!-- Completed Tasks -->
+                    <div class="flex flex-col gap-2">
+                            <div class="text-sm font-medium py-2">Completed Tasks</div>
+                        <app-panel-outlined>
+                            <div class="">
+                                    <div class="text-sm font-medium mb-2">Check in with team lead</div>
+                                    <div class="text-xs">Check in with team lead</div>
+                            </div>
+                        </app-panel-outlined>
+                    </div>
+                    <!-- END Completed Tasks -->
+
+                </div>
+                <!-- END Tasks -->
+
+              
+            </div>
+            
+        </mat-tab>
+
+        <!-- Emails -->
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Emails</span>
+            </ng-template>
+            
+            <div class="p-6 flex flex-col gap-4">
+
+                <div class="flex gap-4">
+                    <outlined-button [toggleable]="true">Customer</outlined-button>
+                    <outlined-button [toggleable]="true">Carrier</outlined-button>
+                    <outlined-button [toggleable]="true">Shipper</outlined-button>
+                    <outlined-button [toggleable]="true">Consignee</outlined-button>
+                    <outlined-button [toggleable]="true">Insurance</outlined-button>
+
+                    <div class="flex-1"></div>
+
+                    <link-button routerLink="/new-ui/claims/claims-new-email"><img src="/assets/new-ui-icons/Edit.svg"> New Email</link-button>
+                </div>
+
+
+                <div class="flex flex-col gap-2">
+                    
+                    <app-email-tile from="shippercontact@shipper.com"></app-email-tile>
+                    <app-email-tile from="person@example.com"></app-email-tile>
+                    <app-email-tile from="customercontact@contact.com"></app-email-tile>
+
+                    
+                </div>
+
+
+            </div>
+            
+        </mat-tab>
+
+        <!-- Activity Log -->
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Activity Log</span>
+            </ng-template>
+            
+            <div class="p-6 flex flex-col gap-4">
+
+                <div class="flex gap-4">
+                    <outlined-button [toggleable]="true">Status</outlined-button>
+                    <outlined-button [toggleable]="true">Claim Fields</outlined-button>
+                    <outlined-button [toggleable]="true">Documents</outlined-button>
+                    <outlined-button [toggleable]="true">Tasks</outlined-button>
+                    <outlined-button [toggleable]="true">Emails</outlined-button>
+                    <outlined-button [toggleable]="true">Comments</outlined-button>
+
+                    <div class="flex-1"></div>
+
+                    <link-button ><img src="/assets/new-ui-icons/Download.svg"> Download Log</link-button>
+                </div>
+
+
+                <div class="flex flex-col gap-2">
+                    <div class="font-medium text-sm">11/17/2023</div>
+                    
+                    <app-panel-outlined>
+                        <div class="flex p-1">
+                            <div class="w-1/3">
+                                <p class="text-base font-medium dots">Documents Upload - Bill of Landing</p>
+                                <p class="text-sm">PJ@freightclaims.com - 9:00AM</p>
+                            </div>
+                            <div class="w-2/3 flex flex-col">
+                                <a href="#" class="text-sm visited:text-purple-950 text-blue-700">billoflanding-1.jpg</a>
+                                <a href="#" class="text-sm visited:text-purple-950 text-blue-700">billoflanding-2.jpg</a>
+                                <a href="#" class="text-sm visited:text-purple-950 text-blue-700">billoflanding-3.jpg</a>
+                                <!-- <span class="text-xs font-medium">Sent 9:00AM</span> <span class="text-xs"> 11/15/2023</span> -->
+                            </div>
+                        </div>
+                    </app-panel-outlined>
+
+                    <app-panel-outlined>
+                        <div class="flex p-1">
+                            <div class="w-1/3">
+                                <p class="text-base font-medium dots">Claim Form Data - Shipper</p>
+                                <p class="text-sm">PJ@freightclaims.com - 9:00AM</p>
+                            </div>
+                            <div class="w-2/3 flex items-center gap-2">
+                                <p class="text-sm text-gray-400">None</p>
+                                <img src="/assets/new-ui-icons/LineRight.svg" class="w-16 h-2" >
+                                <p class="text-sm">Example Shipper</p>
+                            </div>
+                        </div>
+                    </app-panel-outlined>
+
+                    <app-panel-outlined>
+                        <div class="flex p-1">
+                            <div class="w-1/3">
+                                <p class="text-base font-medium dots">Claim Form Data - Claim Form Notes</p>
+                                <p class="text-sm">PJ@freightclaims.com - 9:00AM</p>
+                            </div>
+                            <div class="w-2/3">
+                                <div class="w-full flex items-center gap-2">
+                                    <p class="text-sm dots">Lorem ipsum dolor sit amet consectetur. At vitae ultrices commodo tortor vitae. Rhoncus arcu tristique luctus integer maecenas tortor at tortor. </p>
+                                    <img src="/assets/new-ui-icons/LineRight.svg" class="w-16 h-2" >
+                                    <p class="text-sm dots">Lorem ipsum dolor sit amet consectetur. At vitae ultrices commodo tortor vitae. Rhoncus arcu tristique luctus integer maecenas tortor at tortor. </p>
+                                </div>
+                                <a class="text-sm visited:text-purple-950 text-blue-950" target="_blank" href="https://google.com">Show All</a>
+                            </div>
+
+                        </div>
+                    </app-panel-outlined>
+
+
+                    <app-panel-outlined>
+                        <div class="flex p-1">
+                            <div class="w-1/3">
+                                <p class="text-base font-medium dots">Claim Form Data - Commodities</p>
+                                <p class="text-sm">PJ@freightclaims.com - 9:00AM</p>
+                            </div>
+                            <div class="w-2/3">
+                                <div class="w-full flex items-center gap-2">
+                                    
+                                    <table class="flex-1">
+                                        <tr>
+                                            <td class="border border-solid border-gray-400 p-2 border-b-0 bg-[#dbe5df] font-medium text-sm max-w-1/3 ">Claim Type</td>
+                                            <td class="border border-solid border-gray-400 p-2 text-sm w-2/3">Damaged</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-solid border-gray-400 p-2 border-t-0 bg-[#dbe5df] font-medium text-sm">Condition</td>
+                                            <td class="border border-solid border-gray-400 p-2 text-sm">New</td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <img src="/assets/new-ui-icons/LineRight.svg" class="w-16 h-2" >
+                                    <table class="flex-1">
+                                        <tr>
+                                            <td class="border border-solid border-gray-400 p-2 border-b-0 bg-[#dbe5df] font-medium text-sm w-1/3">Claim Type</td>
+                                            <td class="border border-solid border-gray-400 p-2 text-sm w-2/3">Damaged</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-solid border-gray-400 p-2 border-t-0 bg-[#dbe5df] font-medium text-sm">Condition</td>
+                                            <td class="border border-solid border-gray-400 p-2 bg-[#dfe0ff] text-sm">New</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <a class="text-sm visited:text-purple-950 text-blue-950" target="_blank" href="https://google.com">Show All</a>
+                            </div>
+
+                        </div>
+                    </app-panel-outlined>
+                </div>
+
+
+
+
+                <div class="flex flex-col gap-2">
+                    <div class="font-medium text-sm">11/16/2023</div>
+                    
+                    <app-panel-outlined>
+                        <div class="flex p-1">
+                            <div class="w-1/3">
+                                <p class="text-base font-medium dots">Task Created</p>
+                                <p class="text-sm">PJ@freightclaims.com - 9:00AM</p>
+                            </div>
+                            <div class="w-2/3 flex flex-col">
+                                <p class="text-sm">Review Documents</p>
+                                <p class="text-xs">Due 9:00AM 11/20/2023</p>
+                                <p class="text-xs">Reminder every 24 hours</p>
+                            </div>
+                        </div>
+                    </app-panel-outlined>
+
+                    <app-panel-outlined>
+                        <div class="flex p-1">
+                            <div class="w-1/3">
+                                <p class="text-base font-medium dots">Email Sent</p>
+                                <p class="text-sm">PJ@freightclaims.com - 9:00AM</p>
+                            </div>
+                            <div class="w-2/3 flex flex-col">
+                                <p class="text-sm dots"><span>Email Subject:</span> Lorem ipsum dolor sit amet consectetur. At vitae ultrices commodo tortor vitae. Rhoncus arcu tristique luctus integer maecenas tortor at tortor. </p>
+                                <a class="text-sm visited:text-purple-950 text-blue-950" target="_blank" href="https://google.com">Show All</a>
+                            </div>
+                        </div>
+                    </app-panel-outlined>
+                </div>
+
+
+            </div>
+            
+        </mat-tab>
+
+    </mat-tab-group>
+
+  </div>

@@ -1,0 +1,51 @@
+
+<div class="p-5 w-[700px]">
+
+    
+    <h3 class="text-2xl pb-7">Update Status</h3>
+
+    <p class="text-xs">Current Status</p>
+    <p class="text-sm mt-2">Open -  In Progress</p>
+    
+    <div class="mt-7">
+        
+       
+    
+
+        <div class="grid grid-cols-2 gap-2 gap-x-8 mb-4">
+
+            <mat-form-field appearance="outline">
+                <mat-label>New Status</mat-label>
+                <mat-select value="1" >
+                  <mat-option value="1">Open</mat-option>
+                  <mat-option value="1">In Progress</mat-option>
+                  <mat-option value="1">Close</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>New Substatus</mat-label>
+                <mat-select value="1" >
+                  <mat-option value="1">Filed with Carrier</mat-option>
+                  <mat-option value="1">In Progress</mat-option>
+                  <mat-option value="1">Close</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <app-date-input label="Date to Apply"></app-date-input>
+
+        </div>
+
+        <app-text-area label="Update Note" height="250px"></app-text-area>
+          
+        <div class="flex justify-end gap-1 mt-3 mb-2">
+            <link-button mat-dialog-close>Cancel</link-button>
+            <link-button [mat-dialog-close]="true">Save</link-button>
+        </div>
+    
+    </div>
+
+    
+
+
+</div>

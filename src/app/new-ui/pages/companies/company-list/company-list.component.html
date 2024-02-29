@@ -1,0 +1,19 @@
+<sub-menu [menuSelected]="menuCompanies" [opcionButton]="buttonCompany">
+  <div class="m-3 border-b border-gray-300 border-solid">
+    <h1 class="font-medium text-2xl my-4">Customers</h1>
+    <div class="flex flex-col">
+      <div class="flex gap-3">
+      </div>
+      <div class="flex justify-between items-center mb-2">
+        <div>
+          <outlined-button text="Shipper" class="mr-2"></outlined-button>
+          <outlined-button text="Consignee" class="mr-2"></outlined-button>
+        </div>
+      </div>
+      <div class="">
+      
+        <company-table></company-table>
+      </div>
+    </div>
+  </div>
+</sub-menu>

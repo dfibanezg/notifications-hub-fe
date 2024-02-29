@@ -1,0 +1,16 @@
+
+
+<div class="flex justify-end mt-5 mb-1">
+    <link-button text="New User Role" [routerLink]="['/new-ui/user-settings/role-editor']"  ><mat-icon>add</mat-icon></link-button>
+</div>
+
+<div class="grid grid-cols-3 gap-6">
+
+    <app-role-item title="Admin" subTitle="All Claims" permissions="10 / 10 Permissions" users="1 User Assigned"></app-role-item>
+
+    <app-role-item title="Power User" subTitle="All Claims" permissions="8 / 10 Permissions" users="2 Users Assigned"></app-role-item>
+
+    <app-role-item title="Restricted User" subTitle="Claims restricted by claim amount" permissions="5 / 10 Permissions" users="0 Users Assigned"></app-role-item>
+
+
+</div>

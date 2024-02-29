@@ -1,0 +1,22 @@
+
+mat-form-field {
+    width: 100%;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 0.8rem;
+    gap: 1rem;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-container mat-icon{
+    cursor: pointer;
+}
+

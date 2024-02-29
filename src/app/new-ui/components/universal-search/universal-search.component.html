@@ -1,0 +1,129 @@
+<!-- <form class="universal-search">
+    <div>
+      <input type="text" placeholder="Search FreightClaims...">
+      <mat-icon>search</mat-icon>
+    </div>
+  </form> -->
+
+  <form class="universal-search" [ngClass]="{'universal-search-opened': isSearching() }" (click)="isSearching.set(true);$event.stopPropagation()" >
+    <mat-form-field class="w-full" appearance="outline" >
+      <input type="text"
+             placeholder="Search FreightClaims"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto" >
+      <mat-autocomplete #auto="matAutocomplete" class="universal-search-mat-autocomplete" >
+        <div *ngIf="myControl.value?.length! === 0">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="h-10">
+            <span class="text-base font-medium px-4 py-4">{{option}}</span>
+          </mat-option>
+        </div>
+
+        <div *ngIf="myControl.value?.length! > 0">
+          <mat-option>
+            <div class="font-medium text-sm px-4 py-2">Filter Primary Identifier Contains '12345'</div>
+          </mat-option>
+
+          <!-- Claims -->
+          <mat-option>
+            <div class="text-sm py-1 bg-5 px-4 font-medium" >Claims</div>
+          </mat-option>  
+          <mat-option>
+            <div class="flex flex-col mt-2">
+              <div>
+                <div class="text-base font-medium flex justify-between px-4 items-center">
+                  <span>Claim 1234567</span> 
+                  <span class="text-sm font-medium flex items-center">
+                    <mat-icon class="text-sm pr-0 text-center text-purple-200">brightness_1</mat-icon> In Progress
+                  </span>
+                </div>
+                <div class="text-xs px-4">Carrier: TForce Freight</div>
+                <div class="text-xs px-4">Customer: Logistics Fox</div>
+              </div>
+            </div>
+          </mat-option>  
+          <mat-option>
+            <div class="flex flex-col mt-4">
+              <div>
+                <div class="text-base font-medium flex justify-between px-4 items-center">
+                  <span>Claim 1234567</span> 
+                  <span class="text-sm font-medium flex items-center">
+                    <mat-icon class="text-sm pr-0 text-center text-blue-200">brightness_1</mat-icon> In Progress
+                  </span>
+                </div>
+                <div class="text-xs px-4">Carrier: TForce Freight</div>
+                <div class="text-xs px-4">Customer: Logistics Fox</div>
+              </div>
+            </div>
+          </mat-option>  
+          <mat-option>
+            <div class="flex flex-col mt-4">
+              <div>
+                <div class="text-base font-medium flex justify-between px-4 items-center">
+                  <span>Claim 1234567</span> 
+                  <span class="text-sm font-medium flex items-center">
+                    <mat-icon class="text-sm pr-0 text-center text-green-200">brightness_1</mat-icon> Customer Info Requested
+                  </span>
+                </div>
+                <div class="text-xs px-4">Carrier: TForce Freight</div>
+                <div class="text-xs px-4">Customer: Logistics Fox</div>
+              </div>
+            </div>
+          </mat-option>  
+          <mat-option>
+            <div class="flex flex-col mt-4">
+              <div>
+                <div class="text-base font-medium flex justify-between px-4 items-center">
+                  <span>Claim 1234567</span> 
+                  <span class="text-sm font-medium flex items-center">
+                    <mat-icon class="text-sm pr-0 text-center text-red-200">brightness_1</mat-icon> In Progress
+                  </span>
+                </div>
+                <div class="text-xs px-4">Carrier: TForce Freight</div>
+                <div class="text-xs px-4">Customer: Logistics Fox</div>
+                <div class="text-xs px-4">Carrier Claim ID: 1234567</div>
+              </div>
+            </div>
+          </mat-option>  
+
+
+          <!-- Companies -->
+          <mat-option>
+            <div class="text-sm py-1 bg-5 px-4 font-medium mt-2" >Companies</div>
+          </mat-option>  
+          <mat-option>
+            <div class="flex flex-col mt-2">
+              <div>
+                <div class="text-base font-medium flex justify-between px-4"><span>12345 Logistics</span></div>
+                <div class="text-xs px-4">Carrier</div>
+              </div>
+            </div>
+          </mat-option>  
+          <mat-option>
+            <div class="flex flex-col mt-4">
+              <div>
+                <div class="text-base font-medium flex justify-between px-4"><span>12345 Insurance</span></div>
+                <div class="text-xs px-4">Insurance</div>
+              </div>
+            </div>
+          </mat-option>  
+          <mat-option>
+            <div class="flex flex-col mt-4">
+              <div>
+                <div class="text-base font-medium flex justify-between px-4"><span>12345 Corp.</span></div>
+                <div class="text-xs px-4">Customer</div>
+              </div>
+            </div>
+          </mat-option>  
+
+          
+        </div>
+      </mat-autocomplete>
+
+      <!-- <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu> -->
+    </mat-form-field>
+  </form>

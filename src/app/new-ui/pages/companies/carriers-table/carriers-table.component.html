@@ -1,0 +1,81 @@
+<table mat-table [dataSource]="dataSource" matSort class="full-width">
+
+  <ng-container matColumnDef="companyName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header">Company Name</th>
+    <td mat-cell *matCellDef="let row" class="align-text-top">
+      <div>
+        <div>
+          <a class="text-green-700 font-medium" routerLink="/new-ui/company/carrier-editor">{{row.companyName}}</a>
+        </div>
+        <div class="text-xs text-gray-400">EXPL</div>
+
+      </div>
+
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="mode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header"> Mode </th>
+    <td mat-cell *matCellDef="let row" matLine="1" class="align-text-top"> {{row.mode}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header"> Address </th>
+    <td mat-cell *matCellDef="let row" matLine="1" class="align-text-top">
+      <div>
+        <div>{{row.address}}</div>
+        <div class="text-xs text-gray-400">New York, NY 1111</div>
+
+      </div>
+
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header"> Phone </th>
+    <td mat-cell *matCellDef="let row" class="align-text-top"> {{row.phone}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header">Email </th>
+    <td mat-cell *matCellDef="let row" class="align-text-top"> {{row.email}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="claims">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header">
+        <span  class="text-end" 	>
+          Claims
+        </span>
+    </th>
+    <td mat-cell *matCellDef="let row" class="align-text-top">
+      <div>
+        <div class="text-end">
+          {{row.claims}}
+        </div>
+        <div class="text-xs text-gray-400 text-end">Sub text</div>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Actions -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header"></th>
+    <td mat-cell *matCellDef="let row" class="align-text-top">
+      <button mat-button [matMenuTriggerFor]="actionsMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #actionsMenu="matMenu">
+        <button mat-menu-item>Edit</button>
+      </mat-menu>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter </td>
+  </tr>
+</table>

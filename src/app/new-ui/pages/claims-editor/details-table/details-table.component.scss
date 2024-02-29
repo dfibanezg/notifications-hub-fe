@@ -1,0 +1,45 @@
+@import "/src/scss/variables";
+
+thead {
+    background-color: $background-4;
+}
+
+th {
+    text-align: start;
+    padding: 10px;
+    font-weight: 600;
+}
+
+table {
+    border: solid 1px $background-4;
+    font-size: 14px;
+}
+
+td {
+    padding: 10px;
+    border: solid 1px $background-4;
+}
+
+td.p-1 {
+    padding: 4px;
+    padding-right: 10px;
+}
+
+
+/* Change the border color */
+::ng-deep {
+
+    .border-none .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+    .border-none .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+    .border-none .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+        border: none !important;
+        font-size: 10px;
+        height: 40px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+}
+td:has(.mat-mdc-form-field) {
+    padding: 0;
+}

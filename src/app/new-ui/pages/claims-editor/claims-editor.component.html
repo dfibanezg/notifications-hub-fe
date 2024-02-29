@@ -1,0 +1,50 @@
+<div class="bg-white h-full">
+
+    <div class="flex justify-between p-4 items-center">
+    <div class="flex items-center gap-4">
+      <button class="flex items-center justify-center p-1" routerLink="/new-ui/claims/claims-list">
+        <mat-icon>close</mat-icon>
+      </button>
+      <h1 class="text-2xl" >New Claim</h1>
+    </div>
+
+    <div class="flex">
+      <link-button text="Back" (click)="stepper.previous()"></link-button>
+      <link-button text="Next" (click)="stepper.next()" *ngIf="stepper._getFocusIndex()!=2" ></link-button>
+      <link-button text="Create" (click)="create()" *ngIf="stepper._getFocusIndex()===2" ></link-button>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="px-6">
+
+<mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Claim ID</ng-template>
+        
+            <claims-editor-step-one></claims-editor-step-one>
+
+        <!-- <div>
+          <button mat-button matStepperNext>Next</button>
+        </div> -->
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Claim Parties">
+      <form [formGroup]="secondFormGroup">
+        
+        <claims-editor-step-two></claims-editor-step-two>
+        
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Sipment Details</ng-template>
+      
+      <claims-editor-step-three></claims-editor-step-three>
+      
+    </mat-step>
+  </mat-stepper>
+</div>
+
+</div>

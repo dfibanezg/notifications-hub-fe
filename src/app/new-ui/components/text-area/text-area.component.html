@@ -1,0 +1,5 @@
+<mat-form-field class="w-full" appearance="outline"  [ngStyle]="{ 'height': height  }"  >
+    <mat-label>{{label}}</mat-label>
+    <textarea matInput [placeholder]="placeholder" ></textarea>
+    <mat-hint class="text-xs" *ngIf="hint">{{hint}}</mat-hint>
+</mat-form-field>

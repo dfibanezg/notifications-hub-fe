@@ -1,0 +1,18 @@
+@import "/src/scss/variables";
+
+::ng-deep {
+    .mat-step-label .mat-step-text-label.ng-star-inserted{
+        font-size: 14px;
+    }
+    .mat-step-label.mat-step-label-active.mat-step-label-selected  .mat-step-text-label.ng-star-inserted{
+        color: $primary;
+    }
+
+    .mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
+        background-color: $background-1 !important;
+    }
+
+    .mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected .mat-step-icon-content {
+        color: $primary;
+    }
+}

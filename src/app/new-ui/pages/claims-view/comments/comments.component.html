@@ -1,0 +1,38 @@
+<div class="p-4 w-96" (click)="$event.stopPropagation();">
+
+    <div class="flex justify-between items-center">
+        <h4 class="text-2xl">Comments</h4>
+        <mat-icon >close</mat-icon>
+    </div>
+
+    <div class="mt-4">
+        <app-text-area label="" height="150px" (click)="$event.stopPropagation()"></app-text-area>
+    </div>
+
+    <div class="flex items-center">
+        <div class="flex-1">
+            <mat-checkbox>Internal Only</mat-checkbox>
+        </div>
+        <link-button>Clear</link-button>
+        <outlined-button [toggleable]="false">Post</outlined-button>
+    </div>
+
+    <div class="flex flex-col gap-4 mt-2">
+        <app-panel-outlined bg="white" >
+            <p>@pjayaram can you take a look at this claim to make sure it ready to send</p>
+            <div class="flex justify-between mt-1 text-xs">
+                <span>N Singh</span>
+                <span>9:00AM 11/27/2023</span>
+            </div>
+        </app-panel-outlined>
+
+        <app-panel-outlined bg="white" >
+            <p>Waiting on the shipper to send information</p>
+            <div class="flex justify-between mt-1 text-xs">
+                <span>N Singh</span>
+                <span>9:00AM 11/27/2023</span>
+            </div>
+        </app-panel-outlined>
+    </div>
+    
+</div>

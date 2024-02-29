@@ -1,0 +1,46 @@
+<claims-list-menu>
+
+    <div class="bg-white rounded-xl min-h-dvh m-4 " >
+            
+        <h1 class="text-2xl p-3"><mat-icon class="text-2xl" routerLink="/new-ui/claims/claims-list">arrow_back</mat-icon> Claims Settings </h1>
+    
+        <mat-divider></mat-divider>
+        
+        <mat-tab-group animationDuration="0ms" class="mx-6">
+            <mat-tab>
+                <ng-template mat-tab-label >
+                    <span class="text-sm font-medium">Claims Not Filed</span>
+                </ng-template>
+    
+                <claims-not-filed></claims-not-filed>
+            </mat-tab>
+    
+           <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="text-sm font-medium">Filed Claims</span>
+                </ng-template>
+    
+                <filed-claims></filed-claims>
+            </mat-tab>
+    
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="text-sm font-medium">Closed Claims</span>
+                </ng-template>
+    
+                <closed-claims></closed-claims>
+            </mat-tab>
+    
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="text-sm font-medium">Automations</span>
+                </ng-template>
+    
+                <automations></automations>
+            </mat-tab>
+        </mat-tab-group>
+        
+    </div>
+    
+    </claims-list-menu>
+    

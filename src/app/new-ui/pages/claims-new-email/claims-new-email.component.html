@@ -1,0 +1,117 @@
+<div class="bg-white pb-10 ">
+  <div class="flex justify-between p-4 items-center">
+    <div class="flex items-center gap-4">
+      <button
+        class="flex items-center justify-center p-1"
+        (click)="location.back()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <h1 class="text-2xl">New Email</h1>
+    </div>
+
+    <div class="flex">
+      <link-button text="Back" (click)="location.back()"></link-button>
+      <primary-button text="Send" (click)="location.back()"></primary-button>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="px-6 mx-4 mt-6 flex flex-col gap-6">
+
+    <div>
+        <app-email-recipients></app-email-recipients>
+    </div>
+
+    <div class="grid grid-cols-3 gap-8 mt-2">
+
+      <app-input label="Subject"></app-input>
+      <app-select
+        label="Email Template"
+        [options]="templateOptions"></app-select>
+    </div>
+
+    <!-- Text Editor -->
+    <app-text-editor></app-text-editor>
+    <!-- END Text Editor -->
+
+
+    <div class="flex items-center justify-between">
+        <h4 class="text-base font-semibold">Attachments(1)</h4>
+        <app-toggle-group (valueChange)="toggleGroupChange($event)" [options]="options" initialValue="uploaded"></app-toggle-group>
+    </div>
+
+    <div *ngIf="groupToShow==='uploaded'" class="grid grid-cols-4 gap-6">
+        
+        <app-panel-outlined>
+            <div class="flex justify-between items-center px-2">
+                <p class="font-medium text-sm">Bill of Landing</p>
+                <div class="flex items-center">
+                    <mat-checkbox ></mat-checkbox>
+                </div>
+            </div>
+        </app-panel-outlined>
+
+        <app-panel-outlined>
+            <div class="flex justify-between items-center px-2">
+                <p class="font-medium text-sm">Freight Invoice</p>
+                <div class="flex items-center">
+                    <mat-checkbox ></mat-checkbox>
+                </div>
+            </div>
+        </app-panel-outlined>
+
+        <app-panel-outlined>
+            <div class="flex justify-between items-center px-2">
+                <p class="font-medium text-sm">Product Invoice</p>
+                <div class="flex items-center">
+                    <mat-checkbox ></mat-checkbox>
+                </div>
+            </div>
+        </app-panel-outlined>
+
+        <app-panel-outlined>
+            <div class="flex justify-between items-center px-2">
+                <p class="font-medium text-sm">Delivery Receipt</p>
+                <div class="flex items-center">
+                    <mat-checkbox ></mat-checkbox>
+                </div>
+            </div>
+        </app-panel-outlined>
+
+        <app-panel-outlined>
+            <div class="flex justify-between items-center px-2">
+                <p class="font-medium text-sm">Inspection Report</p>
+                <div class="flex items-center">
+                    <mat-checkbox ></mat-checkbox>
+                </div>
+            </div>
+        </app-panel-outlined>
+        
+        <app-panel-outlined>
+            <div class="flex justify-between items-center px-2">
+                <p class="font-medium text-sm">Freight Damage Photo</p>
+                <div class="flex items-center">
+                    <mat-checkbox ></mat-checkbox>
+                </div>
+            </div>
+        </app-panel-outlined>
+        
+        <app-panel-outlined>
+            <div class="flex justify-between items-center px-2">
+                <p class="font-medium text-sm">Other Documents</p>
+                <div class="flex items-center">
+                    <mat-checkbox ></mat-checkbox>
+                </div>
+            </div>
+        </app-panel-outlined>
+
+    </div>
+
+    <div *ngIf="groupToShow==='templates'">
+        <h4>Templates</h4>
+    </div>
+
+  </div>
+</div>

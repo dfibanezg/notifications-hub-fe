@@ -1,0 +1,7 @@
+<button mat-stroked-button class="text-sm font-medium" [ngClass]="{'active': active && toggleable}"  [color]="color" (click)="handleClick()">
+    <div class="flex items-center justify-between w-full">
+        <mat-icon *ngIf="active && toggleable">check</mat-icon>
+        {{text}}
+        <ng-content></ng-content>
+    </div>
+</button>

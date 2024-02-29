@@ -1,12 +1,1 @@
-
-<mat-toolbar style="background: #545f5691;">
-  <div class="flex flex-grow justify-end">
-    <button mat-icon-button class="justify-items-end" [matMenuTriggerFor]="menu">
-      <mat-icon class="icon" [ngStyle]="{'color':'white'}">notifications</mat-icon>
-      <span class="badge" style="color: rgb(250, 250, 250);" *ngIf="notificationNumberCount > 0">{{notificationNumberCount}}</span>
-      <mat-menu #menu="matMenu">
-          <button mat-stroked-button class="p-8" *ngFor="let message of messages">{{ message | json }}</button>
-      </mat-menu>
-    </button>
-  </div>
-</mat-toolbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,37 @@
+<app-panel-outlined>
+    <div class="flex items-center gap-1">
+        
+        <ng-container [ngTemplateOutlet]="leftIcon"></ng-container>
+        
+        <p class="flex-1 text-xs">{{title}}</p>
+        <img src="/assets/new-ui-icons/Edit.svg" *ngIf="!readOnly && !isEditing()" (click)="isEditing.set(true)">
+        <link-button (click)="isEditing.set(false)" *ngIf="isEditing()">Cancel</link-button>
+        <link-button (click)="isEditing.set(false)" *ngIf="isEditing()">Save</link-button>
+    </div>
+    <div class="pl-7" *ngIf="!isEditing()">
+        <p class="text-sm font-medium">{{subtitle}}</p>
+        <p class="text-xs">{{address1}}</p>
+        <p class="text-xs">{{cityStateZip}}</p>
+        <p class="text-xs">{{phone}}</p>
+        <p class="text-xs">{{email}}</p>
+    </div>
+
+    <div *ngIf="isEditing()" class="my-3">
+        <mat-form-field appearance="outline" class="w-full h-12"  >
+            <mat-label>Select a {{title}}</mat-label>
+            <mat-select>
+              <form class="text-xs p-2">
+                <input
+                  type="text"
+                  placeholder="Search Carrier"
+                  (click)="$event.stopPropagation()"
+                  class="outline outline-1 outline-black p-2 w-full text-base rounded-sm bg-transparent"
+                />
+              </form>
+              <mat-option value="option1">DAYLIGHT TRANSPORT, LLC</mat-option>
+              <mat-option value="option2"><link-button text="New Customer" [routerLink]="addNewRoute"></link-button></mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+</app-panel-outlined>

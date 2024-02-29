@@ -1,0 +1,10 @@
+@import "/src/scss/variables";
+
+.active {
+    background-color: $background-1;
+    border-color: $background-1 !important;
+}
+
+.mdc-button.mdc-button--outlined.mat-mdc-outlined-button.mat-mdc-button-base {
+    border-radius: 8px;
+}

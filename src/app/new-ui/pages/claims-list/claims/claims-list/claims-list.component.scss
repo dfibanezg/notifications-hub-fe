@@ -1,0 +1,41 @@
+
+@import "/src/scss/variables";
+
+// ::ng-deep {
+
+//   .mat-menu-panel{
+//     background-color: $background !important; 
+//   }
+// }
+
+.arrow-up-green {
+  color: green;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  margin-right: 5px;
+}
+
+.arrow-up-green .mat-icon {
+  transform: scale(0.6);
+  margin-right: 0;
+}
+
+.leyend-container {
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-up-red {
+  color: red;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  margin-right: 5px;
+}
+
+.arrow-up-red .mat-icon {
+  transform: scale(0.6);
+  margin-right: 0;
+}
+

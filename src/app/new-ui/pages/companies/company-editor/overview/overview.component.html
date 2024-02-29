@@ -1,0 +1,64 @@
+<div class="w-full bg-white">
+  <div class="flex flex-col w-full">
+    <div class="px-8 py-2 mt-3 w-full">
+      <cards-claims-total />
+    </div>
+    <div class="">
+      <div class="px-6  mt-3 w-full">
+        <p class="font-medium text-base ml-2">Customer Primary Information </p>
+      </div>
+      <div class="flex justify-between px-6 py-2 mt-3 w-full">
+        <app-input label="Customer code" class="w-80 ml-2"></app-input>
+        <app-input label="Company Name" class="w-80 ml-2" hint="*Required"></app-input>
+        <div class="w-80 ml-2">
+          <div class="w-80">
+            <p class="text-xs font-medium">Customer type</p>
+            <div>
+              <mat-checkbox checked="true">Shippper</mat-checkbox>
+              <mat-checkbox>Consignee</mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between px-6 py-2 w-full">
+        <app-input label="Address" class="w-80 ml-2" placeholder="123 Example st."></app-input>
+        <app-input label="Address 2" class="w-80 ml-2" placeholder="123 Example st."></app-input>
+        <app-input label="City / State /Zip" class="w-80 ml-2" placeholder="Austin / Texas / Us "></app-input>
+
+
+      </div>
+      <div class="flex justify-between px-6 py-2 w-full">
+        <app-input label="Phone" class="w-80 ml-2" hint="" placeholder="(888) 888-8888"></app-input>
+        <app-input label="Fax" class="w-80 ml-2" hint="" placeholder="(888) 888-8888"></app-input>
+        <app-input label="Primary Email" class="w-80 ml-2" hint="" placeholder="example@company.com"></app-input>
+      </div>
+      <div class="flex justify-between px-6 py-2 w-full">
+        <app-input label="Web site" class="w-80 ml-2" hint="" placeholder="customer.com"></app-input>
+        <app-input label="Sales Rep or Agent" class="w-80 ml-2" hint="" placeholder="Sales or Agent "></app-input>
+        <app-input label="Sales Rep or Agent Email" class="w-80 ml-2" hint="" placeholder="sales.com"></app-input>
+      </div>
+      <div class="flex justify-between px-6 my-2 w-full  bg-white">
+        <div class="rounded-lg border border-gray-300 border-solid  flex justify-between px-2 py-5 w-full">
+          <p class="font-medium text-base ml-2">Claimant information</p>
+          <mat-checkbox checked="true">Same as Customer</mat-checkbox>
+        </div>
+      </div>
+      <div class="flex justify-between px-6 my-2 w-full">
+        <div class="rounded-lg border border-gray-300 border-solid py-1 w-full flex-row-reverse">
+          <div class="flex justify-between w-full mb-4  mt-3 ">
+            <p class="font-medium text-base ml-4 ">Payee Information</p>
+            <div class="mr-2">
+              <mat-checkbox>Same as Customer</mat-checkbox>
+            </div>
+          </div>
+          <div class="px-6 flex justify-between mt-3 w-full mb-8 ">
+            <app-input label="Payee Name" class="w-80 " hint="" placeholder="First name  Last name"></app-input>
+            <app-input label="Payee Address" class="w-80 ml-2" hint="New York, NY  11111"
+              placeholder="123 Example st."></app-input>
+            <app-input label="Payee Email" class="w-80 ml-2" hint="" placeholder="firsname@payee.com"></app-input>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

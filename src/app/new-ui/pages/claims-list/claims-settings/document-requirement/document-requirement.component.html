@@ -1,0 +1,12 @@
+<div class="flex justify-between items-center">
+    <label class="relative inline-flex items-center label-lenght">
+        <p class="text-base font-medium dots text-wrapped tooltip">{{text}}</p>
+    </label>
+    
+    <div class="flex h-11 justify-end">
+        <mat-radio-group>
+            <mat-radio-button class="three-vm-padding" value="1" [checked]="isRequired"></mat-radio-button>
+            <mat-radio-button class="one-vm-padding" value="2"></mat-radio-button>
+          </mat-radio-group>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<mat-form-field appearance="outline" color="primary" class="max-h-40 w-full">
+    <mat-label>{{label}}</mat-label>
+    <input matInput [placeholder]="placeholder" />
+    <!-- <mat-hint>Hint</mat-hint> -->
+    <mat-hint class="text-xs text-gray-500" *ngIf="hint">{{hint}}</mat-hint>
+</mat-form-field>

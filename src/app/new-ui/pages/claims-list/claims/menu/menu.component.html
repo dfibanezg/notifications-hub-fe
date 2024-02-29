@@ -1,0 +1,148 @@
+<mat-sidenav-container class="sub-navbar h-dvh" >
+
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      [opened]="showSubMenu"
+      class="contents"
+
+    >
+      <button mat-raised-button color="primary" class="new-claim-button text-sm" [routerLink]="['/new-ui/claims/claims-editor']" > <mat-icon>add</mat-icon> New Claim</button>
+
+      <mat-list >
+        <mat-list-item><a routerLink="/new-ui/claims/claims-list" class="w-full  px-4  flex justify-between text-sm font-medium hover:bg-gray-200 p-2 rounded-sm">My Claims </a></mat-list-item>
+
+        <mat-list-item> <a routerLink="/new-ui/claims/claims-list" class="w-full flex  px-6   justify-between text-sm font-medium hover:bg-gray-200 p-2 rounded-sm "> <span>Pre-Claim</span> <span>10</span> </a></mat-list-item>
+
+        <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a class="p-2 px-6 flex w-full justify-between text-sm font-medium" routerLink="/new-ui/claims/claims-list" routerLinkActive="active">
+                <span>Open</span>
+                <span>10</span>
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/new-ui/claims/claims-list" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left"> In Progress</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/new-ui/claims/claims-list" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Waiting on Invoice</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/new-ui/claims/claims-list" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Carrier MIA</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/new-ui/claims/claims-list" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Filed with Carrier</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/new-ui/claims/claims-list" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Awaiting Payment</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+
+          <mat-list-item class="sub-menu-item">
+            <button mat-button>
+            <div class="flex text-sm gap-3 items-center">
+              <mat-icon>keyboard_arrow_down</mat-icon>
+              <span class="text-xs">More</span>
+            </div>
+            </button>
+          </mat-list-item>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+
+        <mat-list-item>
+          <a routerLink="/new-ui/claims/claims-list" class="w-full flex justify-between px-6 hover:bg-gray-200 p-2 rounded-sm font-medium text-sm">
+            Closed
+          </a>
+        </mat-list-item>
+
+        <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header class="h-10">
+            <mat-panel-title>
+              <a class="p-2 px-6 flex w-full justify-between font-medium text-sm headline-2" >
+                <span>All Claims</span>
+                <span>10</span>
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">In progress</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Waiting on Invoice</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Carrier MIA</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Filed with Carrier</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sub-menu-item">
+            <a routerLink="/" class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+              <span class="text-left">Awaiting Payment</span>
+              <span>10</span>
+            </a>
+          </mat-list-item>
+
+          <mat-list-item class="sub-menu-item">
+            <button mat-button>
+            <div class="flex text-sm gap-3 items-center">
+              <mat-icon>keyboard_arrow_down</mat-icon>
+              <span class="text-xs">More</span>
+            </div>
+            </button>
+          </mat-list-item>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-divider></mat-divider>
+
+
+      <mat-list-item>
+        <a 
+          routerLink="/new-ui/claims/claims-settings" 
+          routerLinkActive="active"
+          class="w-full flex px-6 gap-2 items-center hover:bg-gray-200 p-2 rounded-sm font-medium text-sm">
+          <img src="/assets/new-ui-icons/Settings.svg" >
+          Claim Settings
+        </a>
+      </mat-list-item>
+
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-top-bar></app-top-bar>
+      <ng-content></ng-content>
+  </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,19 @@
+<sub-menu [menuSelected]="menuCompanies" [opcionButton]="opcionCarrierButton">
+  <div class="m-3 border-b border-gray-300 border-solid">
+    <h1 class="font-medium text-2xl my-4">Contacts</h1>
+    <div class="flex flex-col">
+      <div class="flex gap-3">
+      </div>
+      <div class="flex justify-between items-center mb-2">
+        <div>
+          <outlined-button (click)="openAddContact()" color="primary" [toggleable]="false" [toggleable]="false">
+            <span class="mr-2 text-green-700 font-medium align-top">New Contact</span>
+          </outlined-button>
+        </div>
+      </div>
+      <div class="">
+        <contact-table />
+      </div>
+    </div>
+  </div>
+</sub-menu>

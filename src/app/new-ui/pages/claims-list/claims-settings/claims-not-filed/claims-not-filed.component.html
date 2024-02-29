@@ -1,0 +1,63 @@
+<div class="grid grid-cols-2 ml-6 mr-6 gap-4 pt-4 pb-6">
+    <div class="border border-gray-300 border-solid  p-4 rounded-lg flex flex-col gap-[2px]">
+
+        <h3 class="font-medium">Document Categories</h3>
+
+        <div _ngcontent-ng-c1143173115="" class="flex justify-end items-center">
+            <p _ngcontent-ng-c1143173115="" class="font-medium text-sm">Private</p>
+        </div>
+
+        <document-category *ngFor="let document of documentCategories" [text]="document.Title"
+            [isEditable]="document.IsEditable ?? false"
+            [isDeletable]="!(document.IsRequired ?? false)">
+        </document-category>
+
+        <div class="flex justify-between items-center h-3-vw">
+            <label class="relative inline-flex items-center label-lenght">
+                <p class="text-base font-medium dots text-wrapped">Other</p>
+            </label>
+        </div>
+
+        <link-button text="New Document Category"
+            (click)="openNewClaimSetting(false, 'New Document Category', 'Cateogry Name')"><mat-icon
+                class="text-base">add</mat-icon></link-button>
+    </div>
+
+    <div class="border border-gray-300 border-solid p-4 rounded-lg flex flex-col gap-[2px]">
+
+        <h3 class="font-medium">Document Requirements</h3>
+
+        <div _ngcontent-ng-c1143173115="" class="flex justify-end items-center ng-star-inserted">
+            <p _ngcontent-ng-c1143173115="" class="font-medium text-sm six-per-padding">Required
+            <p>
+            <p _ngcontent-ng-c1143173115="" class="font-medium text-sm">Recomended</p>
+        </div>
+
+        <document-requirement *ngFor="let document of documentCategories" [text]="document.Title"
+            [isRecomended]="document.IsRecomended ?? false"
+            [isRequired]="document.IsRequired ?? false">
+        </document-requirement>
+    </div>
+
+    <div class="border border-gray-300 border-solid p-4 rounded-lg flex flex-col gap-[2px]">
+
+        <h3 class="font-medium">Claim Types</h3>
+
+        <claims-settings-option *ngFor="let claim of claimTypes" [text]="claim.description" [checked]="claim.enable" [showColorSelect]="false"></claims-settings-option>
+        
+        <link-button text="New Claim Type"
+            (click)="openNewClaimSetting(false, 'New Claim Type', 'Type Name')"><mat-icon
+                class="text-base">add</mat-icon></link-button>
+    </div>
+
+    <div class="border border-gray-300 border-solid p-4 rounded-lg flex flex-col gap-[2px]">
+
+        <h3 class="font-medium">Claim Conditions</h3>
+
+        <claims-settings-option *ngFor="let claim of claimConditions" [text]="claim.description" [checked]="claim.enable" [showColorSelect]="false"></claims-settings-option>
+        
+        <link-button text="New Claim Condition"
+            (click)="openNewClaimSetting(false, 'New Claim Condition', 'Condition Name')"><mat-icon
+                class="text-base">add</mat-icon></link-button>
+    </div>
+</div>

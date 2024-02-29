@@ -19,7 +19,7 @@ export class NotificationService {
   };
 
   public addNotificationListener = (callback: (data: any) => void): void => {
-    this.hubConnection.on('ReceiveNotification', (data) => {
+    this.hubConnection.on('userId_1', (data) => {
       callback(data);
     });
   };

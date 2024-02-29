@@ -1,0 +1,32 @@
+<sub-menu [menuSelected]="menuCompanies" [opcionButton]="buttonCompany">
+  <div class="bg-white rounded-xl min-h-dvh m-4 mt-6">
+
+<div class="bg-white rounded-xl min-h-dvh m-4 mt-6">
+  <div class="border-b border-gray-300 border-solid flex justify-between p-4 items-center">
+    <div class="flex items-center gap-4 ">
+      <button class="flex items-center justify-center p-1" routerLink="/new-ui/company-list">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div>
+        <span class="text-2xl">Example Company</span> &nbsp; <span class="text-sm">Insurance</span>
+      </div>
+    </div>
+    <div class="flex justify-end gap-1 mt-5">
+
+    </div>
+  </div>
+  <mat-tab-group animationDuration="0ms" class="mx-0">
+    <mat-tab class="w-full">
+      <ng-template mat-tab-label>
+        <span class="text-sm font-medium">Overview</span>
+      </ng-template>
+      <overview-insurance-company class="w-full"/>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="text-sm font-medium">Contacts</span>
+      </ng-template>
+      <contacts-insurance-company  class="w-full"/>
+    </mat-tab>
+  </mat-tab-group>
+</div>

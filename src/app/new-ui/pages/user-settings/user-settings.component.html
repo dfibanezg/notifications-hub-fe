@@ -1,0 +1,57 @@
+<app-top-bar></app-top-bar>
+
+<div class="bg-white rounded-xl min-h-dvh m-4 mt-6" >
+
+    <h1 class="text-2xl p-3 py-5 font-medium">Logistics Fox Settings </h1>
+
+    <mat-divider></mat-divider>
+
+    <mat-tab-group animationDuration="0ms" class="mx-6">
+        <mat-tab>
+            <ng-template mat-tab-label >
+                <span class="text-sm font-medium">Roles</span>
+            </ng-template>
+
+            <app-role-list></app-role-list>
+
+        </mat-tab>
+
+       <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Users</span>
+            </ng-template>
+
+            <app-user-list></app-user-list>
+
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Email Templates</span>
+            </ng-template>
+            <app-email-templates-list></app-email-templates-list>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Letter Templates</span>
+            </ng-template>
+            <app-letter-templates-list></app-letter-templates-list>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Corporate Accounts</span>
+            </ng-template>
+            <app-corporate-accounts></app-corporate-accounts>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">API Setup</span>
+            </ng-template>
+            Content 1
+        </mat-tab>
+    </mat-tab-group>
+
+  </div>

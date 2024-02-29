@@ -1,0 +1,31 @@
+@import "/src/scss/variables";
+
+::ng-deep { 
+
+    
+.angular-editor {
+    // background-color: red !important;
+    border: solid 1px $primary;
+    border-radius: 5px;
+}
+    
+.angular-editor:has(.angular-editor-textarea:focus) {
+    // background-color: red !important;
+    border: solid 3px $primary;
+}
+
+.angular-editor-toolbar.ng-star-inserted{
+    background-color: $background-3 !important;
+    border-bottom: solid 1px black !important;
+}
+
+.angular-editor-textarea:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+.angular-editor-textarea {
+    border: none !important;
+}
+
+}

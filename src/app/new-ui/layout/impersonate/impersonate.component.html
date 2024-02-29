@@ -1,0 +1,15 @@
+<div class="p-6 flex flex-col">
+
+    <h2 class="text-2xl mb-6">Impersonate Customer</h2>
+
+    <div class="flex gap-2 w-96">
+        
+        <app-select class="flex-1" label="Customer to Impersonate" [options]="[{value:'', text:'Logistics Fox'}]"></app-select>
+        
+    </div>
+    <div class="flex justify-end gap-2 mt-6">
+        <link-button text="Cancel" [mat-dialog-close]></link-button>
+        <link-button text="Confirm" [mat-dialog-close]="true"></link-button>
+    </div>
+
+</div>

@@ -1,0 +1,74 @@
+<mat-sidenav-container class="sub-navbar h-dvh bg-white">
+
+  <mat-sidenav #sidenav mode="side" [opened]="showSubMenu" class="contents" *ngIf="menuSelected!=menuNone">
+
+    <button mat-raised-button color="primary" class="new-claim-button text-sm" [routerLink]="URLOpcionButton"
+      *ngIf="opcionButton!=optionsButtons.none">
+      <mat-icon>add</mat-icon> {{opcionButton}}</button>
+
+    <mat-list *ngIf="menuMainNodes().length>0">
+      <ng-container *ngFor="let men of menuMainNodes(); let ind= index">
+        <mat-list-item *ngIf="!men.divider && men.page=='/' && childrenNode(men.id).length==0">
+          <a class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium"
+           [ngClass]="ind==0 ? 'px-4':'px-6'"
+          >
+            <span class="text-left">{{men.title}}</span>
+            <span>{{men.quantity}}</span>
+          </a>
+        </mat-list-item>
+        <mat-list-item *ngIf="!men.divider && men.page!='/' && childrenNode(men.id).length==0">
+          <a class="w-full flex gap-2 items-center hover:bg-gray-200 p-2 rounded-sm font-medium text-sm px-6"
+            [ngClass]="{' flex justify-between': !men.icon}" [routerLink]="men.page"
+             routerLinkActive="active"
+
+             >
+            <ng-container *ngIf="!men.icon">
+              <span class="text-left">{{men.title}}</span>
+              <span *ngIf="men.quantity">{{men.quantity}}</span>
+            </ng-container>
+            <div class="flex text-sm gap-3 items-center" *ngIf="men.icon">
+              <mat-icon *ngIf="!isImage(men.icon)">{{men.icon}}</mat-icon>
+              <img *ngIf="isImage(men.icon)" [src]="men.icon" />
+              <span class="text-left">{{men.title}}
+
+              </span>
+            </div>
+          </a>
+        </mat-list-item>
+        <mat-accordion *ngIf="childrenNode(men.id).length>0 && !men.divider">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <a class="w-full  px-6  flex justify-between text-sm font-medium hover:bg-gray-200 p-2 rounded-sm"
+                  routerLinkActive="active" [routerLink]="men.page">
+                  <span> {{men.title}}</span>
+                  <span>{{men.quantity}}</span>
+                </a>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list-item class="sub-menu-item" *ngFor="let childrenNode of childrenNode(men.id)">
+              <a [routerLink]="childrenNode.page" *ngIf="!childrenNode.icon"
+                class="w-full flex justify-between hover:bg-gray-200 p-2 rounded-sm font-medium">
+                <span class="text-left">{{childrenNode.title}} </span>
+                <span>{{childrenNode.quantity}}</span>
+              </a>
+              <a *ngIf="childrenNode.icon">
+                <div class="flex text-sm gap-3 items-center">
+                  <mat-icon *ngIf="!isImage(childrenNode.icon)">{{childrenNode.icon}}</mat-icon>
+                  <img *ngIf="isImage(childrenNode.icon)" [src]="childrenNode.icon" alt="childrenNode.title" />
+                  <span class="text-xs">{{childrenNode.title}}</span>
+                </div>
+              </a>
+              <mat-divider *ngIf="childrenNode?.divider"></mat-divider>
+            </mat-list-item>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <mat-divider *ngIf="men.divider"></mat-divider>
+      </ng-container>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-top-bar></app-top-bar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

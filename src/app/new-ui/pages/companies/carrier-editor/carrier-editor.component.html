@@ -1,0 +1,39 @@
+<div class="bg-white h-full w-full">
+
+  <div class="border-b border-gray-300 border-solid flex justify-between p-4 items-center">
+    <div class="flex items-center gap-4 ">
+      <button class="flex items-center justify-center p-1" routerLink="/new-ui/company-list">
+        <mat-icon>close</mat-icon>
+      </button>
+      <h1 class="text-2xl">New Carrier</h1>
+    </div>
+    <div class="flex justify-end gap-1 mt-5">
+      <button mat-button color="primary" mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" class="mrl-2" [mat-dialog-close]="true">Save</button>
+    </div>
+  </div>
+  <div class="flex justify-between px-6 py-2 mt-3 w-full">
+    <app-input label="Carrier Code / SCAC" class="w-80" hint="*Required"></app-input>
+    <app-input label="Carrier Name" class="w-80" hint="*Required"></app-input>
+    <div class="mb-6 w-80">
+    <mat-form-field appearance="outline" class="w-80 h-12">
+      <mat-label>Mode</mat-label>
+      <mat-select value="option2">
+        <mat-option value="option1">TL</mat-option>
+        <mat-option value="option2">LTL</mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+  </div>
+  <div class="flex justify-between px-6 py-2 w-full">
+    <app-input label="Address" class="w-80" hint="New York, NY  11111" placeholder="123 Example st."></app-input>
+    <app-input label="Phone" class="w-80" hint="" placeholder="(888) 888-8888"></app-input>
+    <app-input label="Fax" class="w-80" hint="" placeholder="(888) 888-8888"></app-input>
+  </div>
+
+  <div class="flex justify-between px-6 py-5 w-full">
+    <app-input label="Email Address" class="w-80" hint="" placeholder="example@carrier.com"></app-input>
+    <app-input label="Web site" class="w-80" hint="" placeholder="carrier.com"></app-input>
+    <div class="w-80"></div>
+  </div>
+</div>

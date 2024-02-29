@@ -1,0 +1,43 @@
+<div class="flex justify-between  py-2 mt-3 w-full  bg-white">
+  <div class="flex flex-col w-full">
+    <div class="px-8 py-2 mt-3 w-full">
+      <cards-claims-total />
+    </div>
+
+      <div class="px-6  my-3  w-full">
+        <p class="font-medium text-base ml-2">Carrier Primary Information </p>
+      </div>
+    <div class="w-full">
+      <div class="flex justify-between px-6 py-2 w-full">
+        <app-input label="Carrier Code / SCAC" class="w-80 ml-2" hint="*Required"></app-input>
+        <app-input label="Carrier Name" class="w-80 ml-2" hint="*Required"></app-input>
+
+        <mat-form-field appearance="outline" class="w-80  ml-2">
+          <mat-label>Mode</mat-label>
+          <mat-select value="option2">
+            <mat-option value="option1">TL</mat-option>
+            <mat-option value="option2">LTL</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <div class="flex justify-between px-6 py-2 w-full">
+        <app-input label="Address" class="w-80 ml-2" placeholder="123 Example st."></app-input>
+        <app-input label="Address 2" class="w-80 ml-2" placeholder="Suite 1"></app-input>
+        <app-input label="City / State /Zip" class="w-80 ml-2" placeholder="New York, NY 1111"></app-input>
+      </div>
+      <div class="flex justify-between px-6 py-2 w-full">
+        <app-input label="Phone" class="w-80 ml-2" hint="" placeholder="(888) 888-8888"></app-input>
+        <app-input label="Fax" class="w-80 ml-2" hint="" placeholder="(888) 888-8888"></app-input>
+        <app-input label="Email Address" class="w-80 ml-2" hint=""
+          placeholder="example@carrier.com"></app-input>
+      </div>
+      <div class="flex justify-between px-6 py-5 w-full">
+        <app-input label="Web site" class="w-80 ml-2" hint="" placeholder="carrier.com"></app-input>
+        <div class="w-80 ml-2"></div>
+        <div class="w-80 ml-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

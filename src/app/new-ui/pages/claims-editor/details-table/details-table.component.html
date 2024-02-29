@@ -1,0 +1,118 @@
+
+<table class="w-full">
+    <thead>
+        <th>Claim Type</th>
+        <th>Condition</th>
+        <th>ID Type</th>
+        <th>Identifier</th>
+        <th>Product Name</th>
+        <th>Unit Weight</th>
+        <th>Unit Cost</th>
+        <th>Quantity</th>
+        <th>Caim Amount</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <mat-form-field appearance="outline" class="w-40 h-10 border-none"  >
+                    <mat-select value="option1">
+                      <mat-option value="option1">Damaged</mat-option>
+                      <mat-option value="option2">Option 2</mat-option>
+                      <mat-option value="option3"><link-button text="New Type"></link-button></mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field appearance="outline" class="w-32 h-10 border-none"  >
+                    <mat-select value="option1">
+                      <mat-option value="option1">New</mat-option>
+                      <mat-option value="option2">Used</mat-option>
+                      <mat-option value="option3"><link-button text="New Condition"></link-button></mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field appearance="outline" class="w-32 h-10 border-none"  >
+                    <mat-select value="option1">
+                      <mat-option value="option1">PO No.</mat-option>
+                      <mat-option value="option2">Option 2</mat-option>
+                      <mat-option value="option3"><link-button text="New ID"></link-button></mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            <td>1234567891234</td>
+            <td><p class="text-ellipsis overflow-hidden whitespace-nowrap max-w-40">Paking Peanuts</p></td>
+            <td class="text-right">5 LBS</td>
+            <td class="text-right">
+                <div class="flex justify-between">
+                    <span>$</span>
+                    <span>5</span>
+                </div>
+            </td>
+            <td class="text-right">
+                <div class="flex justify-between">
+                    <span></span>
+                    <span>10</span>
+                </div>
+            </td>
+            <td class="text-right">
+                <div class="flex justify-between">
+                    <span>$</span>
+                    <span>50</span>
+                </div>
+            </td>
+            <td class="">
+                <div class="flex justify-center">
+                    <img src="/assets/new-ui-icons/Delete.svg">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="p-1">
+                <div class="flex items-center">
+                    <link-button *ngIf="!readOnly"><mat-icon>add</mat-icon> Add Commodity</link-button>
+                    <link-button (click)="isActiveFreightCharges.set(true)" *ngIf="!isActiveFreightCharges() && !readOnly"><mat-icon>add</mat-icon> Add Freight Charges</link-button>
+                    <div class="flex-1"></div>
+                    <p class="font-semibold">Total Commodity Amount</p>
+                </div>
+            </td>
+            <td>
+                <div class="flex justify-between">
+                    <span>$</span>
+                    <span>50</span>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr *ngIf="isActiveFreightCharges()">
+            <td colspan="8" class="p-1">
+                <div class="flex justify-between items-center">
+                    <link-button (click)="isActiveFreightCharges.set(false)"><mat-icon>close</mat-icon> Add Freight Charges</link-button>
+                    <p class="">Freight Charges</p>
+                </div>
+            </td>
+            <td>
+                <div class="flex justify-between">
+                    <span>$</span>
+                    <span>50</span>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="8" class="p-1">
+                <div class="flex justify-end items-center">
+                    <p class="font-semibold">Total Claim Amount</p>
+                </div>
+            </td>
+            <td>
+                <div class="flex justify-between">
+                    <span>$</span>
+                    <span>50</span>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

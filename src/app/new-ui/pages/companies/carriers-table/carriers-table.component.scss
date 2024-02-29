@@ -1,0 +1,31 @@
+::ng-deep {
+
+  .header {
+    font-weight: bold;
+    // color: black;
+    background-color: #dbe5df !important;
+    // font-size: 15px;
+    line-height: 20px !important;
+  }
+}
+
+tr:has(.header) {
+  height: 40px;
+  font-weight: 600;
+}
+
+.threedot-words {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  width: 28% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}

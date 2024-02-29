@@ -1,0 +1,84 @@
+<div class="flex flex-col gap-4">
+
+<div class="flex items-end">
+
+<form class="flex-1">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Recipients</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Recipients">
+        <mat-chip-row *ngFor="let recipient of recipients" (removed)="remove(recipient,recipients)" >
+          {{recipient}}
+          <button matChipRemove [attr.aria-label]="'remove ' + recipient" >
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+      <input placeholder="New Recipient..." #emailInput [formControl]="emailCtrl"
+        [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event, recipients)"/>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event,recipients)">
+        <mat-option *ngFor="let email of filteredEmails | async" [value]="email">
+          {{email}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <link-button (click)="toggleCC()">CC</link-button>
+  <link-button (click)="toggleBCC()">BCC</link-button>
+
+</div>
+
+<div *ngIf="showCC()">
+    <form class="">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>CC Recipients</mat-label>
+          <mat-chip-grid #chipGridCC aria-label="Recipients">
+            <mat-chip-row *ngFor="let recipient of ccRecipients" (removed)="remove(recipient, ccRecipients)" >
+              {{recipient}}
+              <button matChipRemove [attr.aria-label]="'remove ' + recipient" >
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input placeholder="New CC..." #ccInput
+            [matChipInputFor]="chipGridCC" [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event, ccRecipients)"/>
+          <mat-autocomplete #autoCC="matAutocomplete" (optionSelected)="selected($event, ccRecipients)">
+            <mat-option *ngFor="let email of filteredEmails | async" [value]="email">
+              {{email}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+</div>
+
+
+<div *ngIf="showBCC()">
+    <form class="">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>BCC Recipients</mat-label>
+          <mat-chip-grid #chipGridBCC aria-label="Recipients">
+            <mat-chip-row *ngFor="let recipient of bccRecipients" (removed)="remove(recipient, bccRecipients)" >
+              {{recipient}}
+              <button matChipRemove [attr.aria-label]="'remove ' + recipient" >
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input placeholder="New BCC..." #bccInput
+            [matChipInputFor]="chipGridBCC" [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event, bccRecipients)"/>
+          <mat-autocomplete #autoBCC="matAutocomplete" (optionSelected)="selected($event, bccRecipients)">
+            <mat-option *ngFor="let email of filteredEmails | async" [value]="email">
+              {{email}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+</div>
+
+</div>

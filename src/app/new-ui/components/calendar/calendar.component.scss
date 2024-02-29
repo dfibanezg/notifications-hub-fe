@@ -1,0 +1,25 @@
+@import "/src/scss/variables";
+
+  .mat-mdc-card.mdc-card {
+   background-color: $background-3;
+  }
+
+  button.pink {
+    background: #ffdad6;
+    border-radius: 100%;
+  }
+
+  button.red {
+    background: red;
+    border-radius: 100%;
+  }
+
+  button.yellow {
+    background: yellow;
+    border-radius: 100%;
+  }
+
+  button.purple {
+    background: #dfe0ff;
+    border-radius: 100%;
+  }

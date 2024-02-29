@@ -1,0 +1,12 @@
+<button mat-button color="primary">
+    <div class="text-secondary font-medium flex items-center gap-1" 
+        [ngClass]="
+            {
+                'text-sm':size === 'small',
+                'text-xs':size === 'xsmall',
+                'text-md':size === 'medium',
+            }" > <ng-content></ng-content> 
+            {{text}}
+            <ng-content></ng-content>
+    </div> 
+</button>

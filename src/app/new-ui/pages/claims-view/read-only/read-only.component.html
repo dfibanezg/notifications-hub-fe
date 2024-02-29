@@ -1,0 +1,355 @@
+<app-top-bar></app-top-bar>
+
+<div class="bg-white rounded-xl min-h-dvh m-4 mt-6" >
+
+    <div class="flex items-center px-4 pl-0 pt-2 pb-0">
+        <div class="flex flex-1 items-center">
+            <button mat-icon-button routerLink="/new-ui/claims/claims-list">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <h1 class="text-2xl px-2 pt-2 pl-0 pb-2 m-0 font-medium">Claim 123456789 </h1>
+
+            <div class="relative grid select-none items-center 
+                whitespace-nowrap rounded-xl bg-violet-300 py-1 px-3 
+                font-sans text-xs font-medium ">
+                <span class="">Customer Info Requested</span>
+            </div>
+        </div>
+
+        <div class="flex items-center">
+            <!-- update status button -->
+            <button mat-fab [matMenuTriggerFor]="menu" style="height: 24px; width: 24px; background-color: transparent;  box-shadow: none; ">
+                <!-- <img src="/assets/new-ui-icons/CommentOutline.svg" > -->
+                <app-badge-icon 
+                    src="/assets/new-ui-icons/CommentOutline.svg"
+                    badge="3"></app-badge-icon>
+            </button>
+            <mat-menu #menu="matMenu" >
+                <claims-view-comments ></claims-view-comments>
+            </mat-menu>
+
+        </div>
+    </div>
+
+
+    <div class="flex gap-1 ml-12 mb-2 items-center">
+        <span class="text-sm font-medium">Assigned to </span>
+        <div class="flex gap-1 border border-solid rounded-lg border-gray-500 p-0 items-center px-2 py-0.5" >
+            <img src="/assets/new-ui-icons/User.svg" >
+            <p class="text-sm font-medium">Username</p>
+        </div>
+    </div>
+    
+    <mat-divider></mat-divider>
+
+    <mat-tab-group animationDuration="0ms" class="">
+        <!-- Claim Form Data -->
+        <mat-tab>
+            <ng-template mat-tab-label >
+                <span class="text-sm font-medium">Claim Form Data</span>
+            </ng-template>
+           
+            <div class="mx-6 mt-4 ">
+
+            <div class="grid grid-cols-3 gap-6 ">
+
+                
+                <app-panel-filled>
+                    <p class="text-xs font-medium mb-1">Claim Age</p>
+                    <div class="flex gap-2 items-end"  ><span class="text-2xl">1</span> <span class="text-xs" style="line-height: 1.5rem;">days</span></div>
+                </app-panel-filled>
+
+                <app-panel-filled>
+                    <p class="text-xs font-medium mb-1">Last Updated</p>
+                    <div><span class="text-2xl">11/17/2023</span></div>
+                </app-panel-filled>
+                
+                <app-panel-filled>
+                    <p class="text-xs font-medium mb-1">Claim Amount</p>
+                    <div class="flex gap-2 items-end"  ><span class="text-xs" style="line-height: 1.5rem;" >$</span> <span class="text-2xl" >50</span> </div>
+                </app-panel-filled>
+
+            </div>
+
+            <h4 class="mt-6 mb-4 font-medium">Identifiers</h4>
+            <div class="grid grid-cols-3 gap-x-16">
+                
+                <div class="flex flex-col gap-2">
+                    <div class="text-xs">Pro No. / Invoice No.</div>
+                    <div class="text-sm">123456789</div>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <div class="text-xs">Reference No.</div>
+                    <div class="text-sm">123456789</div>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <div class="text-xs">Carrier Claim Reference No.</div>
+                    <div class="text-sm">123456789</div>
+                </div>
+            </div>
+
+            <h4 class="mt-6 mb-4 font-medium">Timeline</h4>
+            <div class="grid grid-cols-3 gap-x-16">
+                
+                <div class="flex flex-col gap-2">
+                    <div class="text-xs">Pickup Date</div>
+                    <div class="text-sm">08/17/2023</div>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <div class="text-xs">Delivery Date</div>
+                    <div class="text-sm">08/19/2023</div>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <div class="text-xs">Carrier Acknowledgement Date</div>
+                    <div class="text-sm">None</div>
+                </div>
+            </div>
+            <h4 class="mt-6 mb-4 font-medium">Parties</h4>
+            <div class="grid grid-cols-3 gap-x-16 ">
+                <claims-view-party-panel
+                    title="Customer"
+                    subtitle="Example Customer"
+                    address1="12 Example St."
+                    cityStateZip="New York, NY 11111"
+                    phone="(888) 888 - 8888"
+                    email="example@example.com"
+                    [readOnly]="true"
+                    >
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/UserFilled.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+
+                <claims-view-party-panel
+                    title="Insurance"
+                    subtitle="No insurance selected"
+                    [readOnly]="true">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/LockOutline.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+            </div>
+
+            <div class="grid grid-cols-3 gap-x-16 mt-6">
+                <claims-view-party-panel
+                    title="Shipper"
+                    subtitle="No shipper selected"
+                    [readOnly]="true">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/PinDropOutline.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+
+                <claims-view-party-panel
+                    title="Carrier"
+                    subtitle="Example Carrier"
+                    address1="12 Example St."
+                    cityStateZip="New York, NY 11111"
+                    phone="(888) 888 - 8888"
+                    email="example@example.com"
+                    [readOnly]="true">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/LocalShippingOutline.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+
+                <claims-view-party-panel
+                    title="Consignee"
+                    subtitle="No consignee selected"
+                    [readOnly]="true">
+                    <ng-template #leftIcon>
+                        <img src="/assets/new-ui-icons/PinDrop.svg">
+                    </ng-template>
+                </claims-view-party-panel>
+            </div>
+
+            <h4 class="mt-6 mb-4 font-medium">Commodities</h4>
+            <div class="">
+                <claim-editor-details-table [readOnly]="true"></claim-editor-details-table>
+            </div>
+
+            <div class="my-6">
+                <mat-form-field class="flex-1" appearance="outline"  
+                    style="height: 130px !important" class="w-1/2" >
+                    <mat-label>Claim Form Notes</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..." 
+                        value="Confirmed with consignee that damage cannot be repaired"></textarea>
+                    <mat-hint>Max 150 characters</mat-hint>
+                  </mat-form-field>
+            </div>
+            
+            </div>
+        </mat-tab>
+
+        <!-- Documents -->
+       <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Documents</span>
+            </ng-template>
+
+            <div class="p-6 pt-8">
+
+                
+
+                <div>
+
+                    <div class="grid grid-cols-4 mt-2 gap-4">
+                        
+                        <app-upload-file-tile title="Bill of Landing"
+                            [files]="['billoflanding-1.pdf','billoflanding-2.pdf','billoflanding-3.pdf']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Freight Invoice"
+                            [files]="['shipperinvoice-1.jpg','shipperinvoice-2.jpg']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Product Invoice"
+                            [files]="[]"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Delivery Receipt / Proof of Delivery"
+                            [files]="['delivery-receipt.jpg']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Inspection Report"
+                            [files]="['inspection-report.pdf']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Freight Damage Photo"
+                            [files]="['photo-1.jpg','photo-2.jpg','photo-3.jpg']"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="Other"
+                            [files]="[]"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="From Templates"
+                            [files]="[]"></app-upload-file-tile>
+
+                        <app-upload-file-tile title="My Custom Category"
+                            [files]="['random_document.pdf']"></app-upload-file-tile>
+
+                    </div>
+                
+                </div>
+
+            </div>
+            
+        </mat-tab>
+
+        <!-- Tasks -->
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="text-sm font-medium">Tasks</span>
+            </ng-template>
+            
+            <div class="grid grid-cols-2 p-6">
+
+                <!-- Calendar -->
+                <div class="pr-8">
+                    <app-calendar></app-calendar>
+                </div>
+                <!-- END Calendar -->
+
+                <!-- Tasks -->
+                <div class="flex flex-col gap-2">
+
+                    <!-- Outstanding Tasks -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm font-medium">Outstanding Tasks</div>
+                            <link-button (click)="openNewTask()"><mat-icon>add</mat-icon> New Task</link-button>
+                        </div>
+
+                        <app-panel-outlined class="bg-[#dfe0ff] rounded-lg">
+                            <div class="flex ">
+                                <div class="flex-1">
+                                    <div class="text-sm font-medium mb-2">Review Documents</div>
+                                    <div class="flex gap-2">
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md" >
+                                            <img src="/assets/new-ui-icons/Calendar.svg" >
+                                            <span class="text-xs">9:00AM 11/17/2023</span>
+                                        </div>
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md"> 
+                                            <img src="/assets/new-ui-icons/Bell.svg" >
+                                            <span class="text-xs">Every 24 hours</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Edit.svg"></button>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Check.svg"></button>
+                            </div>
+                        </app-panel-outlined>
+
+                        <app-panel-outlined>
+                            <div class="flex">
+                                <div class="flex-1">
+                                    <div class="text-sm font-medium mb-2">Brad Berlin Check in with the team lead</div>
+                                    <div class="flex gap-2">
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md" >
+                                            <img src="/assets/new-ui-icons/Calendar.svg" >
+                                            <span class="text-xs">9:00AM 11/17/2023</span>
+                                        </div>
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md"> 
+                                            <img src="/assets/new-ui-icons/Bell.svg" >
+                                            <span class="text-xs">Every 24 hours</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Edit.svg"></button>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Check.svg"></button>
+                            </div>
+                        </app-panel-outlined>
+
+                    </div>
+                    <!-- END Outstanding Tasks -->
+
+                    <!-- Overdue Tasks -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-sm font-medium py-2">Overdue Tasks</div>
+                        <app-panel-outlined class="bg-[#ffdad6] rounded-lg">
+                            <div class="flex ">
+                                <div class="flex-1">
+                                    <div class="text-sm font-medium mb-2">Check in with team lead</div>
+                                    <div class="flex gap-2">
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md" >
+                                            <img src="/assets/new-ui-icons/Calendar.svg" >
+                                            <span class="text-xs">9:00AM 11/17/2023</span>
+                                        </div>
+                                        <div class="flex border border-solid border-black px-2 py-0.5 rounded-md"> 
+                                            <img src="/assets/new-ui-icons/Bell.svg" >
+                                            <span class="text-xs">Every 24 hours</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Edit.svg"></button>
+                                <button mat-icon-button><img src="/assets/new-ui-icons/Check.svg"></button>
+                            </div>
+                        </app-panel-outlined>
+                    </div>
+                    <!-- END Overdue Tasks -->
+
+                      <!-- Completed Tasks -->
+                    <div class="flex flex-col gap-2">
+                            <div class="text-sm font-medium py-2">Completed Tasks</div>
+                        <app-panel-outlined>
+                            <div class="">
+                                    <div class="text-sm font-medium mb-2">Check in with team lead</div>
+                                    <div class="text-xs">Check in with team lead</div>
+                            </div>
+                        </app-panel-outlined>
+                    </div>
+                    <!-- END Completed Tasks -->
+
+                </div>
+                <!-- END Tasks -->
+
+              
+            </div>
+            
+        </mat-tab>
+
+
+    </mat-tab-group>
+
+  </div>

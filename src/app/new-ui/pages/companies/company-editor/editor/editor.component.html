@@ -1,0 +1,47 @@
+<sub-menu [menuSelected]="menuCompanies" [opcionButton]="buttonCompany">
+  <div class="bg-white rounded-xl min-h-dvh m-4 mt-6">
+    <div class="">
+      <div class="border-b border-gray-300 border-solid flex justify-between  items-center mx-6 bg-white  ">
+        <div class="flex items-center gap-4  bg-white  h-16 ">
+          <button class="flex items-center justify-center p-1" routerLink="/new-ui/company-list">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <div>
+            <span class="text-2xl">Example Company</span> &nbsp; <span class="text-sm">Customer</span>
+          </div>
+        </div>
+        <div class="flex justify-end gap-1 mt-5 h-12">
+
+        </div>
+      </div>
+      <mat-tab-group animationDuration="0ms" class="mx-0">
+        <mat-tab class="w-full h-100">
+          <ng-template mat-tab-label>
+            <span class="text-sm font-medium">Overview</span>
+          </ng-template>
+          <div class=" h-dvh  w-full z-10 bg-white">
+            <company-editor-overview></company-editor-overview>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="text-sm font-medium">Contacts</span>
+          </ng-template>
+          <company-editor-contacts></company-editor-contacts>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="text-sm font-medium">Products</span>
+          </ng-template>
+          <company-editor-products></company-editor-products>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="text-sm font-medium">Locations</span>
+          </ng-template>
+          <company-editor-locations></company-editor-locations>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</sub-menu>

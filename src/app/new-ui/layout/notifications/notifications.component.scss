@@ -1,0 +1,14 @@
+::ng-deep {
+
+    .mat-menu-user.mat-menu-before.mat-menu-below.mat-elevation-z8.ng-star-inserted{
+        border-radius: 10px !important;
+        max-width: none;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .mat-menu-user.mat-menu-before.mat-menu-below.mat-elevation-z8.ng-star-inserted::-webkit-scrollbar {
+        display: none;
+    }
+
+}
